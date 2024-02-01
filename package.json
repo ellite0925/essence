@@ -1,0 +1,92 @@
+{
+  "name": "next-material-kit",
+  "version": "1.2.2",
+  "description": "NextJS Version of Material Kit React by Creative Tim (https://creative-tim.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/nextjs-material-kit.git"
+  },
+  "keywords": [
+    "next",
+    "nextjs",
+    "react",
+    "reactjs",
+    "npx",
+    "material",
+    "material-design",
+    "material-kit",
+    "material-kit-react",
+    "next-material-kit"
+  ],
+  "author": "Creative Tim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/nextjs-material-kit/issues"
+  },
+  "homepage": "https://demos.creative-tim.com/nextjs-material-kit",
+  "dependencies": {
+    "@material-ui/core": "4.11.4",
+    "@material-ui/icons": "4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "@material-ui/pickers": "^3.3.11",
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.3.0",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^0.21.2",
+    "bcryptjs": "^2.4.3",
+    "classnames": "2.3.2",
+    "cookie-parser": "^1.4.5",
+    "date-fns": "^3.0.5",
+    "dotenv": "^8.2.0",
+    "downshift": "^8.3.1",
+    "html-to-text": "^9.0.5",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "leaflet": "^1.9.4",
+    "moment": "2.29.4",
+    "next": "12.2.5",
+    "next-redux-wrapper": "^6.0.2",
+    "notistack": "^3.0.1",
+    "nouislider": "14.7.0",
+    "opencage-api-client": "^1.0.3",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "prop-types": "15.8.1",
+    "react": ">=16.0.0",
+    "react-datetime": "3.1.1",
+    "react-dom": ">=16.0.0",
+    "react-leaflet": "^4.2.1",
+    "react-otp-input": "^3.1.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^6.20.0",
+    "react-slick": "0.29.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
+    "rsuite": "^5.46.1",
+    "sass": "1.66.1",
+    "styled-components": "5.3.5",
+    "validator": "^13.11.0",
+    "web-vitals": "^3.5.1",
+    "webpack": "5.88.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
