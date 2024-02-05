@@ -37,7 +37,7 @@ const headerLinksStyle = (theme) => ({
     padding: "0 !important"
   },
   navLink: {
-    color: "inherit",
+    color: "black",
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",
@@ -49,7 +49,7 @@ const headerLinksStyle = (theme) => ({
     margin: "0px",
     display: "inline-flex",
     "&:hover,&:focus": {
-      color: "inherit",
+      color: "rgba(46, 49, 146, 1)",
       background: "rgba(200, 200, 200, 0.2)"
     },
     [theme.breakpoints.down("sm")]: {

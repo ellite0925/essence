@@ -150,17 +150,13 @@ function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          // href="https://www.creative-tim.com/product/nextjs-material-kit-pro?ref=njsmk-navbar"
+          href=""
           color="transparent"
           target="_blank"
-          style={{color:"inherit"}}
+          className={classes.navLink}
+          onClick={handleDashboard}
         >
-          <a
-            href="#contact_section"
-            style={{color:"inherit"}}
-          >
           Contact
-          </a>
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
