@@ -194,7 +194,7 @@ export default function Home(props) {
         fixed
         color="transparent"
         changeColorOnScroll={{
-          height: 400,
+          height: 80,
           color: "white"
         }}
         {...rest}

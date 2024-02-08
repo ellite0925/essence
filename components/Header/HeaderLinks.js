@@ -43,6 +43,14 @@ function HeaderLinks(props) {
       return Router.push("/home-feed");
     }
   }
+  
+  const handleHome = () => {
+    return Router.push("/home");
+  }
+
+  const handleAbout = () => {
+    return Router.push("/about");
+  }
 
   const handleProducts = () => {
     if(props.token==null || props.token==undefined)
@@ -95,31 +103,24 @@ function HeaderLinks(props) {
       </ListItem> */}
       <ListItem className={classes.listItem}>
         <Button
-          // href="https://www.creative-tim.com/product/nextjs-material-kit-pro?ref=njsmk-navbar"
+          href=""
           color="transparent"
           target="_blank"
           className={classes.navLink}
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            });
-          }}
+          onClick={handleHome}
         >
           Home
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
+          href=""
           color="transparent"
           target="_blank"
           className={classes.navLink}
+          onClick={handleAbout}
         >
-          <a
-            href="#about_section"
-            style={{color:"inherit"}}
-            >
-          About</a>
+          About
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
