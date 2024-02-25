@@ -219,9 +219,9 @@ export default function Home(props) {
       <div className={classNames(classes.main, classes.mainRaised)} id="aboutus_section">
         <div className={classes.deepColoredSection} style={{height: '400px', marginTop: '150px', paddingTop: '15px'}}>
           <GridContainer alignItems="center" direction="column">
-            <h4 className={classes.title} style={{ color: 'white' }}>SHORT STORY ABOUT US</h4>
-            <h2 className={classes.title} style={{color: 'white'}}>The big story behind, our</h2>
-            <h2 className={classes.title} style={{color: 'white'}}>beautyness center</h2>
+            <h4 className={classes.title} style={{ color: 'white' }}>About The Essence of Life</h4>
+            <h2 className={classes.title} style={{color: 'white'}}>True Healing with </h2>
+            <h2 className={classes.title} style={{color: 'white'}}>Pure Health Products</h2>
             <ColorButton style={{width: '250px', marginTop: '30px'}} variant="outlined">Make a reservation</ColorButton>
           </GridContainer>
         </div>
@@ -229,51 +229,13 @@ export default function Home(props) {
       {/* about us end */}
       {/* our values start */}
       <div className={classNames(classes.main, classes.mainRaised)} id="ourvalues_section">
-        <GridContainer alignItems="center" style={{ marginTop: "50px" }} direction="column">
-          <h4 className={classes.title} style={{ color: '#2E3192' }}>OUR VALUES</h4>
-          <h2 className={classes.title} style={{color: 'black'}}>The work values we thrive for</h2>
-        </GridContainer>
-        <GridContainer style={{marginTop: '50px', marginBottom: '80px'}}>
-          <GridItem sm={4}></GridItem>
-          <GridItem sm={4}>
-            <GridContainer>
-              <GridItem sm={3}>
-                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
-                  <img src="./img/about-icon1.png"></img>
-                </div>
-              </GridItem>
-              <GridItem sm={9}>
-                <h4>Beauty Experts</h4>
-                <h4>The majority have suffered alternation in some form, buying to injected humour, or randomised words which desktop publishing packages.</h4>
-              </GridItem>
-            </GridContainer>
-            <Divider style={{marginTop: '20px', marginBottom: '30px'}} />
-            <GridContainer>
-              <GridItem sm={3}>
-                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
-                  <img src="./img/about-icon2.png"></img>
-                </div>
-              </GridItem>
-              <GridItem sm={9}>
-                <h4>Great Services</h4>
-                <h4>The majority have suffered alternation in some form, buying to injected humour, or randomised words which desktop publishing packages.</h4>
-              </GridItem>
-            </GridContainer>
-            <Divider style={{marginTop: '20px', marginBottom: '30px'}} />
-            <GridContainer>
-              <GridItem sm={3}>
-                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
-                  <img src="./img/about-icon3.png"></img>
-                </div>
-              </GridItem>
-              <GridItem sm={9}>
-                <h4>100% Genuine</h4>
-                <h4>The majority have suffered alternation in some form, buying to injected humour, or randomised words which desktop publishing packages.</h4>
-              </GridItem>
-            </GridContainer>
-          </GridItem>
-          <GridItem sm={4}></GridItem>
-        </GridContainer>
+        <Container maxWidth={false} style={{ maxWidth: "60%", marginTop: '100px', marginBottom: '100px' }} >
+          <h3>Welcome to the Essence of Life, your trusted source for cutting-edge, alternative healing, health and wellness products. Founded by two dedicated professionals in the field, Dr. Dean Howell and Rebecca, the Essence of Life is not your typical pharmaceutical products ecommerce store. With a deep understanding of the importance of nutritional supplementation in the realm of health and well-being, our veteran founders are on a mission to provide you with healthcare products that work, addressing the root causes of health issues rather than just their symptoms.</h3>
+          <h3>Unlike many in the naturopathic and nutritional fields, Dr. Howell and Rebecca do not just prescribe supplements to sustain their livelihoods. They believe in a holistic approach to health that minimizes dependence on supplementation. They have found that by incorporating the right blend of structural body work, detoxification, parasite, yeast, and fungus protocols, radionics, Grander technology, lifestyle modification, home or lifestyle improvements, and adopting a healthier way of living, healing becomes attainable.</h3>
+          <h3>Our commitment to effective, cause-driven healing products sets us apart. Our curated range includes supplements for organ cleansing, infection elimination, parasite eradication, heavy metal removal, and more. What makes us unique is that we've developed proprietary products and technologies, realizing the results we've dreamed of since childhood. These offerings can be found on our public store site. At Essence of Life, we proudly offer products that are often hard to find or restricted from public sale.</h3>
+          <h3>We are more than just a store; we are a community of sanctified healers and ministers who operate as Orthodox Catholic ministers. Our practice transcends state boundaries, and we exclusively serve CoDS members. To be part of our vibrant community and access our private store, library of documents, video resources, social bulletin board, and the restricted information on products like Grander, we invite you to join our annual membership, currently priced at $100. </h3>
+          <h3>Our mission is to provide a unique and transformative experience, from perfected water technology to organic, low-carb bakery goods, and from non-grain herbs to cutting-edge solutions for complex health challenges. At the Essence of Life, we are dedicated to your well-being, and our offerings reflect our unwavering commitment to your health journey.</h3>
+        </Container>
       </div>
       {/* our values end */}
       {/* style is reflection start */}
