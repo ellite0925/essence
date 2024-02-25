@@ -296,21 +296,75 @@ export default function Home(props) {
         </div>
       </div>
       {/* style is reflection end */}
+      {/* our values start */}
+      <div className={classNames(classes.main, classes.mainRaised)} id="ourvalues_section">
+        <GridContainer alignItems="center" style={{ marginTop: "50px" }} direction="column">
+          <h4 className={classes.title} style={{ color: '#2E3192' }}>Our Guiding Values</h4>
+          <h2 className={classes.title} style={{color: 'black'}}>Foundation for Your Wellness</h2>
+          <h4 className={classes.title} style={{marginBottom: '0px'}}>At the Essence of Life, our journey is guided by a set of core values that shape our mission and the products and services we offer.</h4>
+          <h4 className={classes.title} style={{marginTop:'20px'}}>We believe that these values not only define who we are but also serve as a compass, guiding us towards a common goal—your health and well-being.</h4>
+        </GridContainer>
+        <GridContainer style={{marginTop: '50px', marginBottom: '80px'}}>
+          <GridItem sm={4}></GridItem>
+          <GridItem sm={4}>
+            <GridContainer>
+              <GridItem sm={3}>
+                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
+                  <img src="./img/about-icon1.png"></img>
+                </div>
+              </GridItem>
+              <GridItem sm={9}>
+                <h4>Holistic Wellness</h4>
+                <h4>Essence of Life is committed to a holistic approach to wellness, addressing the root causes of health issues and providing products that promote overall well-being. They value the idea of treating the whole person, not just the symptoms.</h4>
+              </GridItem>
+            </GridContainer>
+            <Divider style={{marginTop: '20px', marginBottom: '30px'}} />
+            <GridContainer>
+              <GridItem sm={3}>
+                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
+                  <img src="./img/about-icon2.png"></img>
+                </div>
+              </GridItem>
+              <GridItem sm={9}>
+                <h4>Innovation and Uniqueness</h4>
+                <h4>The company places a strong emphasis on offering innovative medical products and solutions that may not be readily available elsewhere. They value uniqueness in their product offerings, such as proprietary remedies and technology.</h4>
+              </GridItem>
+            </GridContainer>
+            <Divider style={{marginTop: '20px', marginBottom: '30px'}} />
+            <GridContainer>
+              <GridItem sm={3}>
+                <div style={{backgroundColor: '#F5F5FA', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'solid 0px', borderRadius: '10px', paddingTop: '25px', paddingBottom: '25px'}}>
+                  <img src="./img/about-icon3.png"></img>
+                </div>
+              </GridItem>
+              <GridItem sm={9}>
+                <h4>Customer Protection</h4>
+                <h4>Essence of Life values the protection and well-being of its customers. They offer products to safeguard individuals against various health challenges, including toxins and harmful agents, and prioritize the welfare of their community members.</h4>
+              </GridItem>
+            </GridContainer>
+          </GridItem>
+          <GridItem sm={4}></GridItem>
+        </GridContainer>
+      </div>
+      {/* our values end */}
       {/* expert start */}
       <div className={classNames(classes.main, classes.mainRaised)} id="expert_section">
         <Container maxWidth={false} style={{ maxWidth: "70%", marginTop: '100px', marginBottom: '150px' }} >
           <GridContainer alignItems="center" direction="column">
-            <h4 className={classes.title} style={{ color: '#2E3192' }}>MEET OUR EXPERTS</h4>
-            <h2 className={classes.title} style={{color: 'black'}}>The amazing women behind Beautyness</h2>
+            <h4 className={classes.title} style={{ color: '#2E3192' }}>Meet Our Dedicated Founders</h4>
+            <h2 className={classes.title} style={{color: 'black'}}>Dr. Dean Howell & Reverend Rebecca</h2>
+            <h4 style={{marginBottom: '0px'}} className={classes.title}>Get to know the visionary founders behind the Essence of Life, Dr. Dean Howell and Reverend Rebecca,</h4>
+            <h4 className={classes.title}>whose unconventional journeys led them to a unique approach to health and wellness.</h4>
           </GridContainer>
           <GridContainer style={{marginTop: '50px'}}>
-            <GridItem sm={4}>
+            <GridItem sm={6}>
               <GridContainer alignItems="center" direction="column">
                 <img src="./img/expert1.png"></img>
-                <h3 className={classes.title} style={{ color: 'black' }}>Sherlin D'Cruz</h3>
-                <h4 className={classes.title} style={{ color: '#5C8692', marginTop: '0px' }}>BEAUTYNESS EXPERT</h4>
-                <h4 className={classes.title} style={{ color: 'black', textAlign: 'center', marginTop: '5px' }}>I must explain to you how all this mistaken idea of denouncing pleasure that will ar aise praising pain</h4>
-
+                <h3 className={classes.title} style={{ color: 'black' }}>Dr. Dean Howell</h3>
+                {/* <h4 className={classes.title} style={{ color: '#5C8692', marginTop: '0px' }}>BEAUTYNESS EXPERT</h4> */}
+                <h4 style={{ color: 'black', textAlign: 'center', marginTop: '5px' }}>A Naturopathic Physician since 1982, embarked on a mission to treat the underlying causes of health issues. Dissatisfied with the predominantly symptomatic relief approach in medicine, he developed NeuroCranial Restructuring, an innovative bio-mechanical manipulation technique. His passion for healing took him outside the commercial healthcare system, leading to the establishment of NCR-01, a not-for-profit private membership association. 
+                  Recognizing the depth of his faith, he and Rev. Rebecca joined the Church of Hope as Ministers and Sanctified Healers, becoming Eastern Orthodox Catholic ministers in 2019. Under the Church of Divine Structure, their healing credentials are acknowledged globally.
+                </h4>
                 <GridContainer>
                   <IconButton color="default" ><FacebookIcon /></IconButton>
                   <IconButton color="default" ><TwitterIcon /></IconButton>
@@ -318,26 +372,15 @@ export default function Home(props) {
                 </GridContainer>
               </GridContainer>
             </GridItem>
-            <GridItem sm={4}>
-              <GridContainer alignItems="center" direction="column">
-                <img src="./img/expert2.png"></img>
-                <h3 className={classes.title} style={{ color: 'black' }}>Maria Sharapova</h3>
-                <h4 className={classes.title} style={{ color: '#5C8692', marginTop: '0px' }}>BEAUTYNESS EXPERT</h4>
-                <h4 className={classes.title} style={{ color: 'black', textAlign: 'center', marginTop: '5px' }}>I must explain to you how all this mistaken idea of denouncing pleasure that will ar aise praising pain</h4>
-
-                <GridContainer>
-                  <IconButton color="default" ><FacebookIcon /></IconButton>
-                  <IconButton color="default" ><TwitterIcon /></IconButton>
-                  <IconButton color="default" ><InstagramIcon /></IconButton>
-                </GridContainer>
-              </GridContainer>
-            </GridItem>
-            <GridItem sm={4}>
+            <GridItem sm={6}>
               <GridContainer alignItems="center" direction="column">
                 <img src="./img/expert3.png"></img>
                 <h3 className={classes.title} style={{ color: 'black' }}>Angeline Jenifer</h3>
-                <h4 className={classes.title} style={{ color: '#5C8692', marginTop: '0px' }}>BEAUTYNESS EXPERT</h4>
-                <h4 className={classes.title} style={{ color: 'black', textAlign: 'center', marginTop: '5px' }}>I must explain to you how all this mistaken idea of denouncing pleasure that will ar aise praising pain</h4>
+                {/* <h4 className={classes.title} style={{ color: '#5C8692', marginTop: '0px' }}>BEAUTYNESS EXPERT</h4> */}
+                <h4 style={{ color: 'black', textAlign: 'center', marginTop: '5px' }}>A Brooklyn native, Reverend Rebecca Hart Malter initially explored unique talents, leading to government work as a psychic. However, her focus shifted to energy healing in the 1990s, where she specialized in massage with energy treatments for over 15 years. In 2013, she crossed paths with Dr. Howell, and their collaborative efforts revealed the synergy of their hands-on methods. 
+
+As Dr. Howell concentrated on Howelling development, Rev. Rebecca channeled her professional baking background into creating delectable bakery products using Magic Flour developed by Rev. Peter Radatti. Together, they form a dynamic duo dedicated to transforming the world of health and wellness.
+</h4>
 
                 <GridContainer>
                   <IconButton color="default" ><FacebookIcon /></IconButton>
@@ -357,12 +400,18 @@ export default function Home(props) {
             <h4 className={classes.title} style={{ color: '#2E3192' }}>TESTIMONIALS</h4>
           </GridContainer>
           <GridContainer justify="center">
-            <h2 className={classes.title}>What our Customers says...</h2>
+            <h2 className={classes.title}>Hear Stories of Our Healthy Clientele</h2>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h4 style={{marginBottom: '0px'}} className={classes.title}>Our customers' experiences speak volumes about the effectiveness of our healing products.</h4>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h4 style={{marginBottom: '0px'}} className={classes.title}>Discover how they've achieved a better quality of life with our health products.</h4>
           </GridContainer>
           <Container maxWidth={false} style={{ maxWidth: "60%", marginTop: '100px' }} >
             <GridContainer>
               <GridItem sm={6}>
-                <div style={{backgroundColor: 'white', padding: '50px'}}>"It is a long established fact that a reader will be tracked distracted by the readable content of a page is when looking at its layout. The pointer ofu sing Lorem of distribution it look like readable English."</div>
+                <div style={{minHeight: '200px', backgroundColor: 'white', padding: '50px'}}>"I've tried countless products, but the antifungal wonders here truly work! They've given me the confidence to embrace a life free from fungal infections."</div>
                 <div style={{backgroundColor: '#2E3192', paddingTop: '20px', paddingBottom: '20px'}}>
                   <GridContainer>
                     <GridItem sm={1}></GridItem>
@@ -371,7 +420,7 @@ export default function Home(props) {
                     </GridItem>
                     <GridItem sm={6}>
                       <Rating name="read-only" value={4.5} readOnly />
-                      <p style={{color: 'white', marginBottom: '0px'}}>James Williams</p>
+                      <p style={{color: 'white', marginBottom: '0px'}}>-	Linda M., Yoga Instructor</p>
                       <p style={{color: 'white', fontSize: '12px', marginBottom: '0px'}}>United States</p>
                     </GridItem>
                     <GridItem sm={2} style={{display: 'flex', alignItems: 'center'}}>
@@ -382,7 +431,7 @@ export default function Home(props) {
                 </div>
               </GridItem>
               <GridItem sm={6}>
-                <div style={{backgroundColor: 'white', padding: '50px'}}>"It is a long established fact that a reader will be tracked distracted by the readable content of a page is when looking at its layout. The pointer ofu sing Lorem of distribution it look like readable English."</div>
+                <div style={{minHeight: '200px', backgroundColor: 'white', padding: '50px'}}>"These remedies have been a game-changer for me. The detoxification support is exceptional, helping me feel refreshed and revitalized. I'm a believer!"</div>
                 <div style={{backgroundColor: '#2E3192', paddingTop: '20px', paddingBottom: '20px'}}>
                   <GridContainer>
                     <GridItem sm={1}></GridItem>
@@ -391,7 +440,7 @@ export default function Home(props) {
                     </GridItem>
                     <GridItem sm={6}>
                       <Rating name="read-only" value={4.5} readOnly />
-                      <p style={{color: 'white', marginBottom: '0px'}}>Lico Jessica</p>
+                      <p style={{color: 'white', marginBottom: '0px'}}>-	John P., IT Specialist</p>
                       <p style={{color: 'white', fontSize: '12px', marginBottom: '0px'}}>United Kingdom</p>
                     </GridItem>
                     <GridItem sm={2} style={{display: 'flex', alignItems: 'center'}}>
@@ -412,10 +461,10 @@ export default function Home(props) {
           <GridContainer spacing={2}>
             <GridItem sm={5}>
               <GridContainer direction="column">
-                <h4 className={classes.title} style={{ color: '#2E3192' }}>SHARE US</h4>
-                <h2 className={classes.title}>Follow us on</h2>
-                <h2 style={{marginTop: '0px'}} className={classes.title}>Instagram</h2>
-                <h4 className={classes.title} style={{ color: 'black' }}>There are many variations of passages of Lorem ipsum available, but the majority have suffered alternation in some form, buying to inejcted humour, or randomised words many desktop publishing packages.</h4>
+                <h4 className={classes.title} style={{ color: '#2E3192' }}>Stay Connected</h4>
+                <h2 className={classes.title}>For Daily Updates, </h2>
+                <h2 style={{marginTop: '0px'}} className={classes.title}>Follow Us on Instagram </h2>
+                <h4 className={classes.title} style={{ marginBottom: '50px', color: 'black' }}>Join our Instagram community for daily wellness tips, exclusive product insights, and a vibrant dose of inspiration on your journey to a healthier you.</h4>
                 <img src="./img/shareus1.png"></img>
               </GridContainer>
             </GridItem>

@@ -206,12 +206,11 @@ export default function Home(props) {
             <GridItem sm={2}></GridItem>
             <GridItem sm={5} className={classes.columnCenter}>
               <GridContainer direction="column" justify="center" className={classes.autoHeight}>
-                <h5 className={classes.blueText} >WELCOME TO CODS BEAUTY SPA</h5>
-                <h1>Beauty is</h1>
-                <h1>power a smile</h1>
-                <h1>is its sword.</h1>
-                <h5>There are many variation of passages are lpsum available,</h5>
-                <h5>majority have suffered alternation in some form.</h5>
+                <h5 className={classes.blueText} >Innovative Healing Solutions</h5>
+                <h1 style={{marginBottom: '30px', fontFamily: 'satoshi', fontSize: '65px', color: 'black'}}>The Essence of Life</h1>
+                <h5>Step into a world where vibrant health and well-being are not just goals,</h5>
+                <h5>but a way of life. Welcome to the Essence of Life, where innovation and</h5>
+                <h5>holistic wellness unite to rewrite your health story.</h5>
                 <Button color="primary">Make a reservation</Button>
               </GridContainer>
             </GridItem>
@@ -234,35 +233,42 @@ export default function Home(props) {
         <div className={classes.sections}>
           <Container maxWidth={false} style={{ maxWidth: "90%" }} >
             <GridContainer justify="center" style={{ marginTop: "50px" }} id="contact_section">
-              <h4 className={classes.title} style={{ color: '#2E3192' }}>OUR SERVICES</h4>
+              <h4 className={classes.title} style={{ color: '#2E3192' }}>Customer Favorites</h4>
             </GridContainer>
             <GridContainer align="center" direction="column">
-              <h2 className={classes.title}>We are Experienced in making you</h2>
-              <h2 className={classes.title}>very Beautiful</h2>
+              <h2 className={classes.title}>Discover Our Best-Selling</h2>
+              <h2 className={classes.title}>Healing Marvels</h2>
             </GridContainer>
             <GridContainer spacing={8}>
               <GridItem sm={4}>
                 <img className={classes.fullWidth} src="./img/treat1.jpg"></img>
-                <h2>Spa Massage</h2>
-                <h6>If you are going to use a passage offer</h6>
-                <h6>Lorem Ipsum, you need to be sure</h6>
-                <h6>hidden in the middle of text</h6>
+                <h2 style={{marginBottom: '0px'}}>Modern Injection Side</h2>
+                <h2 style={{marginTop: '0px'}}>Effects Kit</h2>
+                <h6>Crafted by ex-NASA scientists, this</h6>
+                <h6>innovative radionic solution targets</h6>
+                <h6>clotting issues tied to modern</h6>
+                <h6>vaccines, frequently yielding relief</h6>
+                <h6>within the first week.</h6>
                 <DefaultButton variant="outlined">Read more</DefaultButton>
               </GridItem>
               <GridItem sm={4}>
                 <img className={classes.fullWidth} src="./img/treat2.jpg"></img>
-                <h2>Hair Beauty</h2>
-                <h6>If you are going to use a passage offer</h6>
-                <h6>Lorem Ipsum, you need to be sure</h6>
-                <h6>hidden in the middle of text</h6>
+                <h2>Prayer Waters</h2>
+                <h6>Elevate your healing journey with a</h6>
+                <h6>powerful combo of the Vaxxinator</h6>
+                <h6>bracelet and customized Prayer Waters,</h6>
+                <h6>designed to counter the effects of</h6>
+                <h6>experimental treatments.</h6>
                 <DefaultButton variant="outlined">Read more</DefaultButton>
               </GridItem>
               <GridItem sm={4}>
                 <img className={classes.fullWidth} src="./img/treat3.jpg"></img>
-                <h2>Body Treatments</h2>
-                <h6>If you are going to use a passage offer</h6>
-                <h6>Lorem Ipsum, you need to be sure</h6>
-                <h6>hidden in the middle of text</h6>
+                <h2>Grander Water Technology</h2>
+                <h6>Step into a world of pure, revitalizing</h6>
+                <h6>water. Grander's transformative</h6>
+                <h6>technology unlocks the magic of</h6>
+                <h6>hydration,enriching your life with the</h6>
+                <h6>benefits of perfectly structured water.</h6>
                 <DefaultButton variant="outlined">Read more</DefaultButton>
               </GridItem>
             </GridContainer>
@@ -273,11 +279,10 @@ export default function Home(props) {
         <div className={classes.coloredSection + ' ' + classes.aboutPadding}>
           <GridContainer>
             <GridItem sm={6} style={{paddingLeft: '200px', paddingRight: '100px'}}>
-                <h4 className={classes.title} style={{ color: '#2E3192' }}>ABOUT US</h4>
-                <h2>The Beauty is about</h2>
-                <h2>being Comfortable</h2>
-                <h2>in your own skin!</h2>
-                <h4 style={{marginTop: '50px'}}>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alternation in some form, buying to injected humour, or randomised words which don't look even many desktop publishing packages.</h4>
+                <h4 className={classes.title} style={{ color: '#2E3192' }}>About The Essence of Life</h4>
+                <h2>True Healing with Pure Health Products</h2>
+                <h4 style={{marginTop: '50px'}}>Welcome to Essence of Life, your portal to cutting-edge health and wellness products. Founded by Dr. Dean Howell and Rebecca, our mission transcends the conventional healthcare approach. Unlike many in the field, we don't just prescribe supplements for sustenance; we advocate a holistic path to well-being. Our diverse range of products, from detoxification to specialized remedies, addresses the root causes of health issues. 
+We've nurtured unique offerings and technologies, some available on our public store, while others await our community members. As sanctified healers, we extend an invitation to join our community and unlock exclusive resources. From perfected water technology to organic, low-carb bakery goods, we're dedicated to your transformative health journey. At the Essence of Life, wellness is not just a goal but a way of life.</h4>
                 <GridContainer style={{marginTop: '80px'}}>
                   <GridItem sm={4}>
                     <div style={{backgroundColor: 'white', border: 'solid black 1px', borderRadius: '10px', display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '20px', paddingBottom: '20px',}}>
@@ -314,10 +319,13 @@ export default function Home(props) {
       <div className={classNames(classes.main, classes.mainRaised)} id="greatness_section">
         <Container maxWidth={false} style={{ maxWidth: "90%" }} >
           <GridContainer justify="center" style={{ marginTop: "50px" }}>
-            <h4 className={classes.title} style={{ color: '#2E3192' }}>GREATNESS FROM NATURE</h4>
+            <h4 className={classes.title} style={{ color: '#2E3192' }}>Wide Range of Health Products</h4>
           </GridContainer>
           <GridContainer justify="center">
-            <h1>Featured Products</h1>
+            <h1>Explore Our Innovative Medical</h1>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h1>Products for Wellness</h1>
           </GridContainer>
           <GridContainer spacing={8} style={{marginTop: '50px'}}>
             <GridItem sm={4}>
@@ -350,11 +358,11 @@ export default function Home(props) {
       <div className={classNames(classes.main, classes.mainRaised)} id="service_section">
         <Container maxWidth={false} style={{ maxWidth: "60%" }} >
           <GridContainer justify="center" style={{ marginTop: "50px" }}>
-            <h4 className={classes.title} style={{ color: '#2E3192' }}>OUR SERVICES</h4>
+            <h4 className={classes.title} style={{ color: '#2E3192' }}>Treatments by Our Health Care Products</h4>
           </GridContainer>
           <GridContainer align="center" direction="column">
-            <h2 className={classes.title}>We are Experienced in making you</h2>
-            <h2 className={classes.title}>very Beautiful</h2>
+            <h2 className={classes.title} style={{marginTop:'20px'}}>Revitalize Your Health with Our </h2>
+            <h2 className={classes.title} style={{marginBottom: '50px', marginTop: '0px'}}>Comprehensive Healing Products</h2>
           </GridContainer>
           <GridContainer>
             <GridItem style={{padding: '0px'}} sm={6}>
@@ -363,43 +371,43 @@ export default function Home(props) {
             <GridItem sm={6} style={{padding: '30px'}}>
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
-                  <p>Face masks</p>
+                  <p>Parasite Infections</p>
                 </GridItem>
                 <GridItem sm={3}>
                   <p>from $48.00</p>
                 </GridItem>
               </GridContainer>
-              <p>The versions have evolved over the sometimes by accident.</p>
+              <p>Our products are designed to combat parasitic infections, suggesting that they may offer solutions for individuals dealing with such health issues.</p>
               <Divider style={{marginBottom: '10px'}} />
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
-                  <p>Full body massage</p>
+                  <p>Fungal Infections</p>
                 </GridItem>
                 <GridItem sm={3}>
                   <p>from $54.00</p>
                 </GridItem>
               </GridContainer>
-              <p>The versions have evolved over the sometimes by accident.</p>
+              <p>The presence of antifungals enzymes in our product range suggests they could be effective in treating fungal infections.</p>
               <Divider style={{marginBottom: '10px'}} />
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
-                  <p>Geothermal spa</p>
+                  <p>Detoxification</p>
                 </GridItem>
                 <GridItem sm={3}>
                   <p>from $54.00</p>
                 </GridItem>
               </GridContainer>
-              <p>The versions have evolved over the sometimes by accident.</p>
+              <p>The inclusion of detoxification products implies support for individuals seeking to rid their bodies of toxins and heavy metals.</p>
               <Divider style={{marginBottom: '10px'}} />
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
-                  <p>Sauna relax</p>
+                  <p>Infections</p>
                 </GridItem>
                 <GridItem sm={3}>
                   <p>from $73.00</p>
                 </GridItem>
               </GridContainer>
-              <p>The versions have evolved over the sometimes by accident.</p>
+              <p>The products seem to target a range of infections, indicating potential benefits for those dealing with various types of infections.</p>
               <Divider style={{marginBottom: '30px'}} />
               <DefaultButton variant="outlined" style={{padding: '15px'}}>GET AN APPOINTMENT</DefaultButton>
             </GridItem>
@@ -408,13 +416,13 @@ export default function Home(props) {
             <GridItem sm={6} style={{padding: '30px'}}>
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
-                  <p>Face masks</p>
+                  <p>Bio-Chemical Agents</p>
                 </GridItem>
                 <GridItem sm={3}>
                   <p>from $48.00</p>
                 </GridItem>
               </GridContainer>
-              <p>The versions have evolved over the sometimes by accident.</p>
+              <p>Medicines tackle chemical, biological, and injected agents’ issues, offering solutions to harmful toxins and substances.</p>
               <Divider style={{marginBottom: '10px'}} />
               <GridContainer justify="space-between">
                 <GridItem sm={3}>
@@ -456,14 +464,14 @@ export default function Home(props) {
       </div>
       <div className={classNames(classes.main, classes.mainRaised)} id="discount_section">
         <div className={classes.coloredSection}>
-          <Container maxWidth={false} style={{ maxWidth: "60%" }} >
+          <Container maxWidth={false} style={{ maxWidth: "60%", paddingTop:'100px', paddingBottom: '100px ' }} >
             <GridContainer>
               <GridItem sm={6}>
-                <h4 className={classes.title} style={{ color: '#2E3192' }}>FLAT DISCOUNT</h4>
-                <h1>Claim upto 50%</h1>
-                <h1>offer on the most</h1>
-                <h1>popular services...</h1>
-                <h4>There are many variations of passages of Lorem ipsum available, but the majority have suffered alternation in some form, buying to injected humour, or randomised words.</h4>
+                <h4 className={classes.title} style={{ color: '#2E3192' }}>Flat Discount</h4>
+                <h1>Become a</h1>
+                <h1>Member of</h1>
+                <h1>Our Community</h1>
+                <h4>To be part of this vibrant community and get access our private store, library of documents, video resources, social bulletin board, and the restricted information on products like Grander, we invite you to join our annual membership - currently priced at $100.</h4>
                 <GridContainer spacing={0}>
                   <GridItem sm={8} style={{padding:'0px'}}>
                     <div style={{backgroundColor: 'white', paddingTop: '20px', paddingLeft: '30px', paddingBottom: '20px', paddingRight: '30px', height: '180px'}}>
@@ -581,9 +589,9 @@ export default function Home(props) {
         <GridContainer>
           <GridItem sm={6} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
             <div style={{paddingLeft: '150px', paddingRight: '150px', }}>
-              <h4 className={classes.title} style={{ color: '#2E3192' }}>WHAT INCLUDES?</h4>
-              <h2>Private Store</h2>
-              <h4>It is a long established fact that a reader will be distracted by the readable content of a page when  looking as its layout. The point of using Lorem Ipsum is that is has a more-or-less normal these content here', making it look like readable English.</h4>
+              <h4 className={classes.title} style={{ color: '#2E3192' }}>Discover More Healing Products</h4>
+              <h2>Visit Our Private Store Now</h2>
+              <h4>If you want to explore more healing products from our range, we offer that chance exclusively to our community members. They can visit our private store and discover the products that are not easily available in the market. </h4>
               <DefaultButton variant="outlined" style={{marginTop: '50px'}}>Visit our private store</DefaultButton>
               </div>
           </GridItem>
@@ -595,55 +603,47 @@ export default function Home(props) {
       <div className={classNames(classes.main, classes.mainRaised)} id="benefits_section">
         <Container maxWidth={false} style={{ maxWidth: "60%" }} >
           <GridContainer justify="center">
-            <h4 className={classes.title} style={{ color: '#2E3192' }}>OUR AWESOME BENEFITS</h4>
+            <h4 className={classes.title} style={{ color: '#2E3192' }}>Why Buy From Our Store</h4>
           </GridContainer>
           <GridContainer justify="center">
-            <h2>Actually what you'll get from</h2>
+            <h2>Benefits of Purchasing Our Products</h2>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h4>Discover unique healing solutions that work, from fungal freedom to infection protection.</h4>
+            <h4>Our products help you achieve balance, vitality, and well-being.</h4>
           </GridContainer>
           <GridContainer style={{marginTop: '50px'}}>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>Optimised Energy</h3>
-              <h3>Efficiency</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Holistic Approach</h3>
+              <h4 style={{marginTop: '20px'}}>Our products embrace a holistic journey to well-being, delving beyond surface ailments to unearth the roots of health.</h4>
             </GridItem>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>Multi-faceted</h3>
-              <h3>Water Filtration</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Effective Antifungals</h3>
+              <h4 style={{marginTop: '20px'}}>Step into a world where our antifungal wonders take on fungal foes, setting you on a path to radiant health and well-being.</h4>
             </GridItem>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>Uncompromising Quality</h3>
-              <h3>and Durability</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Detoxification Support</h3>
+              <h4 style={{marginTop: '20px'}}>Let our products be your allies in detoxification, revitalizing your body, and bidding farewell to unwanted toxins and metals.</h4>
             </GridItem>
           </GridContainer>
           <GridContainer style={{marginTop: '20px'}}>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>An Ultra-Pampering Spa</h3>
-              <h3>Experience</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Infection Management</h3>
+              <h4 style={{marginTop: '20px'}}>From common culprits to uncommon adversaries, our products are your companions in the battle against various infections.</h4>
             </GridItem>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>Easy Care for Unparalleled</h3>
-              <h3>Enjoyment</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Balanced Bliss</h3>
+              <h4 style={{marginTop: '20px'}}>Discover the art of maintaining insulin equilibrium and savoring the feast of nutritional abundance to attain health.</h4>
             </GridItem>
             <GridItem sm={4}>
               <img src="./img/benefit-icon.png"></img>
-              <h3>Optimised Energy</h3>
-              <h3>Efficiency</h3>
-              <h4>The point of using Lorem Ipsum is that</h4>
-              <h4>using making it look like readable.</h4>
+              <h3>Harmful Agents Protection</h3>
+              <h4 style={{marginTop: '20px'}}>We shield you from the world's chemical and biological intricacies, offering innovative solutions for overall well-being.</h4>
             </GridItem>
           </GridContainer>
         </Container>
@@ -654,12 +654,18 @@ export default function Home(props) {
             <h4 className={classes.title} style={{ color: '#2E3192' }}>TESTIMONIALS</h4>
           </GridContainer>
           <GridContainer justify="center">
-            <h2>What our Customers says...</h2>
+            <h2>Hear Stories of Our Healthy Clientele</h2>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h4 style={{marginBottom: '0px'}} className={classes.title}>Our customers' experiences speak volumes about the effectiveness of our healing products.</h4>
+          </GridContainer>
+          <GridContainer justify="center">
+            <h4 style={{marginBottom: '0px'}} className={classes.title}>Discover how they've achieved a better quality of life with our health products.</h4>
           </GridContainer>
           <Container maxWidth={false} style={{ maxWidth: "60%", marginTop: '100px' }} >
             <GridContainer>
               <GridItem sm={6}>
-                <div style={{backgroundColor: 'white', padding: '50px'}}>"It is a long established fact that a reader will be tracked distracted by the readable content of a page is when looking at its layout. The pointer ofu sing Lorem of distribution it look like readable English."</div>
+                <div style={{backgroundColor: 'white', padding: '50px', minHeight: '200px'}}>"I've tried countless products, but the antifungal wonders here truly work! They've given me the confidence to embrace a life free from fungal infections."</div>
                 <div style={{backgroundColor: '#2E3192', paddingTop: '20px', paddingBottom: '20px'}}>
                   <GridContainer>
                     <GridItem sm={1}></GridItem>
@@ -668,7 +674,7 @@ export default function Home(props) {
                     </GridItem>
                     <GridItem sm={6}>
                       <Rating name="read-only" value={4.5} readOnly />
-                      <p style={{color: 'white', marginBottom: '0px'}}>James Williams</p>
+                      <p style={{color: 'white', marginBottom: '0px'}}>-	Linda M., Yoga Instructor</p>
                       <p style={{color: 'white', fontSize: '12px', marginBottom: '0px'}}>United States</p>
                     </GridItem>
                     <GridItem sm={2} style={{display: 'flex', alignItems: 'center'}}>
@@ -679,7 +685,7 @@ export default function Home(props) {
                 </div>
               </GridItem>
               <GridItem sm={6}>
-                <div style={{backgroundColor: 'white', padding: '50px'}}>"It is a long established fact that a reader will be tracked distracted by the readable content of a page is when looking at its layout. The pointer ofu sing Lorem of distribution it look like readable English."</div>
+                <div style={{backgroundColor: 'white', padding: '50px', minHeight: '200px'}}>"These remedies have been a game-changer for me. The detoxification support is exceptional, helping me feel refreshed and revitalized. I'm a believer!"</div>
                 <div style={{backgroundColor: '#2E3192', paddingTop: '20px', paddingBottom: '20px'}}>
                   <GridContainer>
                     <GridItem sm={1}></GridItem>
@@ -688,7 +694,7 @@ export default function Home(props) {
                     </GridItem>
                     <GridItem sm={6}>
                       <Rating name="read-only" value={4.5} readOnly />
-                      <p style={{color: 'white', marginBottom: '0px'}}>Lico Jessica</p>
+                      <p style={{color: 'white', marginBottom: '0px'}}>-	John P., IT Specialist</p>
                       <p style={{color: 'white', fontSize: '12px', marginBottom: '0px'}}>United Kingdom</p>
                     </GridItem>
                     <GridItem sm={2} style={{display: 'flex', alignItems: 'center'}}>
