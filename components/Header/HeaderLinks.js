@@ -35,13 +35,8 @@ function HeaderLinks(props) {
   const classes = useStyles();
   const snackbar = useSnackbar();
 
-  const handleDashboard = () => {
-    if(props.token==null || props.token==undefined)
-    {
-      return snackbar.enqueueSnackbar("Sign in first", { variant: "info" });
-    } else {
-      return Router.push("/home-feed");
-    }
+  const handleTouch = () => {
+    return Router.push("/touch");
   }
   
   const handleHome = () => {
@@ -155,7 +150,7 @@ function HeaderLinks(props) {
           color="transparent"
           target="_blank"
           className={classes.navLink}
-          onClick={handleDashboard}
+          onClick={handleTouch}
         >
           Contact
         </Button>
@@ -166,9 +161,9 @@ function HeaderLinks(props) {
           color="transparent"
           target="_blank"
           className={classes.navLink}
-          onClick={handleDashboard}
+          onClick={handleTouch}
         >
-          Dashboard
+          GET IN TOUCH
         </Button>
       </ListItem>
       {props.token == null ? <ListItem className={classes.listItem}>
