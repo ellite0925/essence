@@ -449,14 +449,17 @@ As Dr. Howell concentrated on Howelling development, Rev. Rebecca channeled her 
       <div className={classNames(classes.main, classes.mainRaised)} id="footer_section">
         <div className={classes.sections}>
           <Container maxWidth={false} style={{ maxWidth: "80%" }} >
-
             {/* Footer */}
-
-            <GridContainer justify="space-between" style={{ marginTop: "100px" }}>
+            <GridContainer justify="space-between" style={{ marginTop: "0px" }}>
               <GridItem sm={6}>
                 <img src="/img/CoDS_Black_Logo.png"></img>
-                <p>Lorem ipsum dolor sit amet consectetur adipising elit aliquam</p>
-                <GridContainer style={{ color: "#2E3192", width: "50%" }} justify="space-between">
+                <GridContainer>
+                  <GridItem sm={8}>
+                    <p style={{fontSize: '20px', marginTop: '30px'}}>The Essence of Life</p>
+                    <p>The Essence of Life is your gateway to holistic health and wellness, offering healing solutions and a supportive community.</p>
+                  </GridItem>
+                </GridContainer>
+                {/* <GridContainer style={{ color: "#2E3192", width: "50%" }} justify="space-between">
                   <GridItem>
                     <IconButton color="primary" ><TwitterIcon /></IconButton>
                     <IconButton color="primary" ><InstagramIcon /></IconButton>
@@ -464,32 +467,26 @@ As Dr. Howell concentrated on Howelling development, Rev. Rebecca channeled her 
                     <IconButton color="primary" ><LinkedInIcon /></IconButton>
                     <IconButton color="primary" ><YouTubeIcon /></IconButton>
                   </GridItem>
-                </GridContainer>
+                </GridContainer> */}
               </GridItem>
               <GridItem sm={2}>
-                <h4 className={classes.title} style={{ color: "#170F49" }}>Product</h4>
-                <p><Link href="/" >Features</Link></p>
-                <p><Link href="/" >Pricing</Link></p>
-                <p><Link href="/" >Case studies</Link></p>
-                <p><Link href="/" >Reviews</Link></p>
-                <p><Link href="/" >Updates</Link></p>
+                <h4 className={classes.title} style={{ color: "#170F49" }}>Landings</h4>
+                <p><Link href="/" >Home</Link></p>
+                <p><Link href="/" >Products</Link></p>
+                <p><Link href="/" >Services</Link></p>
               </GridItem>
               <GridItem sm={2}>
                 <h4 className={classes.title} style={{ color: "#170F49" }}>Company</h4>
-                <p><Link href="/" >About</Link></p>
-                <p><Link href="/" >Contact Us</Link></p>
+                <p><Link href="/" >Home</Link></p>
                 <p><Link href="/" >Careers</Link></p>
-                <p><Link href="/" >Culture</Link></p>
-                <p><Link href="/" >Blog</Link></p>
+                <p><Link href="/" >Services</Link></p>
               </GridItem>
 
               <GridItem sm={2}>
-                <h4 className={classes.title} style={{ color: "#170F49" }}>Support</h4>
-                <p><Link href="/" >Getting Started</Link></p>
-                <p><Link href="/" >Helper center</Link></p>
-                <p><Link href="/" >Server status</Link></p>
-                <p><Link href="/" >Report a bug</Link></p>
-                <p><Link href="/" >Chat support</Link></p>
+                <h4 className={classes.title} style={{ color: "#170F49" }}>Resources</h4>
+                <p><Link href="/" >Blog</Link></p>
+                <p><Link href="/" >Products</Link></p>
+                <p><Link href="/" >Services</Link></p>
               </GridItem>
             </GridContainer>
 
@@ -500,12 +497,8 @@ As Dr. Howell concentrated on Howelling development, Rev. Rebecca channeled her 
       </div>
       <Grid container  >
         <Grid item xs={4} style={{display:"flex",justifyContent:'center'}}>
-          <Typography>Copyright © 2023 CODS</Typography>
+          <Typography>All rights reserved.</Typography>
         </Grid>
-        <Grid item xs={7} >
-          <p style={{float:"right"}} ><Link href="/" >All Rights Reserved</Link> | <Link href="/" >Terms Condition</Link> | <Link href="/" >Privacy Policy</Link></p>
-        </Grid>
-        <Grid item xs={1} ></Grid>
       </Grid>
       {/* footer end */}
     </div>
