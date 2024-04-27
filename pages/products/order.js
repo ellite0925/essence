@@ -5,96 +5,34 @@ import classNames from "classnames";
 import Link from "next/link";
 // @material-ui/core components
 import Button from '@material-ui/core/Button';
-import Fab from '@material-ui/core/Fab';
 import { makeStyles } from "@material-ui/core/styles";
-import Rating from '@material-ui/lab/Rating';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import MUIButton from '@material-ui/core/Button';
+import { Dialog, DialogContent, DialogTitle, DialogActions, Divider } from "@material-ui/core";
+import { List, ListItem, ListItemText, ListItemAvatar } from '@material-ui/core';
 // @material-ui/icons
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import KeyboardBackspaceOutlinedIcon from '@material-ui/icons/KeyboardBackspaceOutlined';
-import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
-import WallpaperOutlinedIcon from '@material-ui/icons/WallpaperOutlined';
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import VideocamOutlinedIcon from '@material-ui/icons/VideocamOutlined';
-import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
-import SmsOutlinedIcon from '@material-ui/icons/SmsOutlined';
-import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
-import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
 // import Badge from '@material-ui/core/Badge';
 import Badge from '../../components/Badge/Badge.js';
-import { ButtonBase, Container, Dialog, DialogActions, DialogContent, DialogTitle, Divider, IconButton, Typography } from "@material-ui/core";
+import { Container, IconButton, Typography } from "@material-ui/core";
 import Slide from "@material-ui/core/Slide";
 // components
-import Header from "/components/Header/Header.js";
-import HeaderLinks from "/components/Header/HeaderLinks.js";
-import Footer from "/components/Footer/Footer.js";
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
-import CustomDropdown from "/components/CustomDropdown/CustomDropdown.js";
-import Parallax from "/components/Parallax/Parallax.js";
-import Info from "/components/Typography/Info.js";
 // sections for this page
-import SectionBasics from "/pages-sections/Components-Sections/SectionBasics.js";
-import SectionNavbars from "/pages-sections/Components-Sections/SectionNavbars.js";
-import SectionTabs from "/pages-sections/Components-Sections/SectionTabs.js";
-import SectionPills from "/pages-sections/Components-Sections/SectionPills.js";
-import SectionNotifications from "/pages-sections/Components-Sections/SectionNotifications.js";
-import SectionTypography from "/pages-sections/Components-Sections/SectionTypography.js";
-import SectionJavascript from "/pages-sections/Components-Sections/SectionJavascript.js";
-import SectionCarousel from "/pages-sections/Components-Sections/SectionCarousel.js";
-import SectionCompletedExamples from "/pages-sections/Components-Sections/SectionCompletedExamples.js";
-import SectionLogin from "/pages-sections/Components-Sections/SectionLogin.js";
-import SectionExamples from "/pages-sections/Components-Sections/SectionExamples.js";
-import SectionDownload from "/pages-sections/Components-Sections/SectionDownload.js";
-import Carousel from "react-slick";
-import LocationOn from "@material-ui/icons/LocationOn";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import Card from "/components/Card/Card.js";
-import CardBody from "/components/Card/CardBody.js";
-import CardHeader from "/components/Card/CardHeader.js";
-import Slider from "react-slick";
-import NavPills from "/components/NavPills/NavPills.js";
 import ElevateAppBar from "/components/General/layouts/NavBar.js";
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import PhoneIcon from '@material-ui/icons/Phone';
-import MailIcon from '@material-ui/icons/Mail';
-import RoomIcon from '@material-ui/icons/Room';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import CustomInput from "/components/CustomInput/CustomInput.js";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Radio from "@material-ui/core/Radio";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import Avatar from '@material-ui/core/Avatar';
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import actions from '../../redux/actions';
 import axios from 'axios';
 import { BACKEND_URL } from "../../AppConfigs";
 //other
-import Datetime from "react-datetime";
 import { useSnackbar } from "notistack";
-import { formatDistanceToNow } from 'date-fns';
-import OrderList from "./orderList.js";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-//rsuite
-import { Calendar, Whisper, Popover } from 'rsuite';
-import 'rsuite/dist/rsuite.min.css';
 //style
 import modalStyle from "../../styles/jss/nextjs-material-kit/modalStyle.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/components.js";
@@ -117,23 +55,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import Tooltip from '@material-ui/core/Tooltip';
-import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 import FilterListIcon from '@material-ui/icons/FilterList';
+//custom
+import ShipRates from "./cart/ShipRates.js";
+import VerticalLinearStepper from "./order/VerticalLinearStepper.js";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import PayComponent from "./PayComponent.js";
 
-import Close from "@material-ui/icons/Close";
+const stripePromise = loadStripe('pk_test_51OVOQtFhFnxnoDMRquya5UT74vYR3BcJFVk79wFhtcXg3hgvyM44n9papYedTEXyoIqqYZWFKBGkfxTampbb7sG400RmgjkKoR');
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
-
-
-
-
-
-function createData(id, image, title, date, price, quantity, total_price, status, action) {
-  return { id, image, title, date, price, quantity, total_price, status, action };
+function createData(id, date, number, price, status, products, shipping_rate) {
+  return { id, date, number, price, status, products, shipping_rate};
 }
 
 function descendingComparator(a, b, orderBy) {
@@ -163,11 +98,8 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: 'image', numeric: false, disablePadding: true, label: 'Image' },
-  { id: 'title', numeric: false, disablePadding: false, label: 'Title' },
   { id: 'date', numeric: false, disablePadding: false, label: 'Date' },
-  { id: 'price', numeric: true, disablePadding: false, label: 'Price' },
-  { id: 'quantity', numeric: true, disablePadding: false, label: 'Quantity' },
+  { id: 'quantity', numeric: true, disablePadding: false, label: 'Number Of Products' },
   { id: 't_price', numeric: true, disablePadding: false, label: 'Total Price' },
   { id: 'status', numeric: false, disablePadding: false, label: 'Status' },
 ];
@@ -381,7 +313,7 @@ const useStyles = makeStyles(theme => {
 });
 
 
-export default function EnhancedTable (props) {
+export default function Order (props) {
   //snackbar
   const snackbar = useSnackbar();
   //redux
@@ -399,6 +331,22 @@ export default function EnhancedTable (props) {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [displayType, setDisplayType] = useState("All");
   const [rows, setRows] = useState([]);
+  const [showOrder, setShowOrder] = useState(0);
+  const [selectedOrder, setSelectedOrder] = useState({});
+  const [isInCompletionProgress, setIsInCompletionProgress] = useState(false);
+  const [clientSecret, setClientSecret] = useState(null);
+  const [total, setTotal] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const getStatus = (order) => {
+    if (order.paid === false)
+      return "UNPAID";
+    if (order.accepted === true)
+      return "ACCEPTED";
+    if (order.paid === true)
+      return "PAID";
+    return "UNKNOWN";
+  }
 
   //component mount
   useEffect(() => {
@@ -419,9 +367,7 @@ export default function EnhancedTable (props) {
         const dummy_rows = response.data.data;
         const result_rows = [];
         dummy_rows.forEach(row => {
-          row.products.forEach(product => {
-            result_rows.push(createData(product.product._id+'*'+row.createdAt, product.product._id, product.product.title, row.createdAt, product.product.price, product.count, (product.product.price*product.count).toFixed(2), 'shipping', 'cancel'));
-          })
+          result_rows.push(createData(row._id, row.createdAt, row.products.length, row.price.toFixed(2), getStatus(row), row.products, row.shipping_rate));
         });
         setRows(result_rows);
       });
@@ -449,16 +395,21 @@ export default function EnhancedTable (props) {
     setOrderBy(property);
   };
 
+  const handleShowOrder = (row) => {
+    setShowOrder(true);
+    setSelectedOrder(row);
+  }
+
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.image+'*'+n.date);
+      const newSelecteds = rows.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, id) => {
+  const handleSelect = (event, id) => {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
@@ -487,9 +438,113 @@ export default function EnhancedTable (props) {
     setPage(0);
   };
 
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
+  const handleDisplayByType = (type) => {
+    setDisplayType(type);
+    axios
+      .get(`${BACKEND_URL}/shop/orders`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .then((response) => {
+        //error handler
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        const dummy_rows = response.data.data;
+        const result_rows = [];
+        dummy_rows.forEach(row => {
+          if(type === "Unpaid" && row.paid === true)
+            return ;
+          if(type === "Paid" && row.paid === false)
+            return ;
+          if(type === "Accepted" && row.accepted === false)
+            return ;  
+          result_rows.push(createData(row._id, row.createdAt, row.products.length, row.price.toFixed(2), getStatus(row), row.products, row.shipping_rate));
+        });
+        setRows(result_rows);
+      });
+  }
+
+  const refreshTotal = () => {
+    axios
+      .get(`${BACKEND_URL}/shop/orders/${selectedOrder.id}`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .then((response) => {
+        //error handler
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        
+
+        const data = response.data.data;
+        
+        const products_price = data.products.reduce((sum, value) => {
+          if(value.product && value.product.price)
+            return sum + value.product.price*value.count;
+        }, 0);
+        let shipping_price = data.shipping_rate.amount;
+        let result_price = products_price * 1.0 + shipping_price * 1.0;
+        setTotal(result_price.toFixed(2));
+      });
+  }
+
+  const handleOrderComplete = () => {
+    setShowOrder(false);
+    setIsInCompletionProgress(true);
+    refreshTotal();
+  }
+
+  const handleCurrentStepChange = (step) => {
+    if (step === 1) {
+      axios.post(`${BACKEND_URL}/test/create-payment-intent`,{amount: total*100} , {headers: {token:redux_token}})
+      .then(response=>{
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        setClientSecret(response.data.clientSecret)
+      })
+    }
+    setCurrentStep(step);
+  }
+
+  const handlePay = (result) => {
+    axios
+      .post(`${BACKEND_URL}/shop/orders/purchase`, {
+        result,
+        order: selectedOrder.id
+      }, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .then((response) => {
+        //error handler
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        Router.push("/dummy-success");
+      });
+  }
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
 
@@ -506,114 +561,146 @@ export default function EnhancedTable (props) {
               <KeyboardBackspaceOutlinedIcon  onClick={() => {Router.push("/products")}} className={classes.cursor} />
               <h5 onClick={() => {Router.push("/products")}} className={classes.cursor} >&nbsp;Back</h5>
             </GridContainer>
-            <GridContainer>
-              
-
-              <GridItem sm={3}>
-                <Card style={{ padding: '20px' }}>
-                <Button color="primary" variant={displayType === "All" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("All")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>All</p>
-                </Button>
-                <Button color="primary" variant={displayType === "Purchased" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("Purchased")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>Purchased</p>
-                </Button>
-                <Button color="primary" variant={displayType === "Accepted" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("Accepted")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>Accepted</p>
-                </Button>
-                <Button color="primary" variant={displayType === "Shipping" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("Shipping")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>Shipping</p>
-                </Button>
-                <Button color="primary" variant={displayType === "Completed" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("Completed")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>Completed</p>
-                </Button>
-                <Button color="primary" variant={displayType === "Canceled" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {setDisplayType("Canceled")}}>
-                  <p style={{fontFamily: '', fontSize: '12px'}}>Canceled</p>
-                </Button>
-                  
-                </Card>
-              </GridItem>
-              <GridItem sm={9}>
-                <Card>
-                  <div className={classes.root}>
-                    <Paper className={classes.paper}>
-                      <EnhancedTableToolbar handleCancel={handleCancel} handleDelete={handleDelete} numSelected={selected.length} />
-                      <TableContainer>
-                        <Table
-                          className={classes.table}
-                          aria-labelledby="tableTitle"
-                          size={dense ? 'small' : 'medium'}
-                          aria-label="enhanced table"
-                        >
-                          <EnhancedTableHead
-                            classes={classes}
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
-                            rowCount={rows.length}
-                          />
-                          <TableBody>
-                            {stableSort(rows, getComparator(order, orderBy))
-                              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                              .map((row, index) => {
-                                const isItemSelected = isSelected(row.id);
-                                const labelId = `enhanced-table-checkbox-${index}`;
-
-                                return (
-                                  <TableRow
-                                    hover
-                                    onClick={(event) => handleClick(event, row.id)}
-                                    role="checkbox"
-                                    aria-checked={isItemSelected}
-                                    tabIndex={-1}
-                                    key={row.id}
-                                    selected={isItemSelected}
+              {isInCompletionProgress ? (
+                <GridContainer>
+                  <GridItem xs={9} sm={9} md={9} lg={9}>
+                    <Card style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+                      <GridContainer>
+                        <GridItem  xs={1} sm={1} md={1} lg={1}></GridItem>
+                        <GridItem  xs={10} sm={10} md={10} lg={10}>
+                          {currentStep === 0 ? (
+                            <ShipRates id={selectedOrder.id} refreshTotal={refreshTotal}  />
+                          ) : (
+                            <GridContainer>
+                              <GridItem>
+                                {clientSecret && (
+                                  <Elements
+                                    stripe={stripePromise}
+                                    options={{ clientSecret: clientSecret }}
                                   >
-                                    <TableCell padding="checkbox">
-                                      <Checkbox
-                                        checked={isItemSelected}
-                                        inputProps={{ 'aria-labelledby': labelId }}
-                                      />
-                                    </TableCell>
-                                    <TableCell component="th" id={labelId} scope="row" padding="none">                                  
-                                      <img src={`${BACKEND_URL}/shop/products/${row.image}/image`} alt="..." style={{ width: "50px", height: "50px"}}></img>
-                                    </TableCell>
-                                    <TableCell align="left">{row.title}</TableCell>
-                                    <TableCell align="left">{new Date(row.date).toLocaleString()}</TableCell>
-                                    <TableCell align="left">{row.price}</TableCell>
-                                    <TableCell align="left">{row.quantity}</TableCell>
-                                    <TableCell align="left">{row.total_price}</TableCell>
-                                    <TableCell align="left"><Badge color="warning" size="medium"><p style={{fontSize: '12px'}}>{row.status}</p></Badge></TableCell>
+                                    <PayComponent
+                                      handlePay={handlePay}
+                                    />
+                                  </Elements>
+                                )}
+                              </GridItem>
+                            </GridContainer>
+                          )}
+                        </GridItem>
+                        <GridItem  xs={1} sm={1} md={1} lg={1}></GridItem>
+                      </GridContainer>
+                    </Card>
+                  </GridItem>
+                  <GridItem xs={3} sm={3} md={3} lg={3}>
+                    <Card className={classes.cardPaddingNoTop} style={{minHeight: '233px'}}>
+                      <VerticalLinearStepper handleCurrentStepChange={handleCurrentStepChange} />
+                      <GridContainer justify="center">
+                        <h3 className={classes.title} style={{ color: "#2E3192" }}>
+                          Total :
+                        </h3>
+                        <h3 className={classes.title} style={{ color: "#2E3192" }}>
+                          &nbsp;${total}
+                        </h3>
+                      </GridContainer>
+                      
+                    </Card>
+                  </GridItem>
+                </GridContainer>
+              ) : (
+                <GridContainer>
+                  <GridItem sm={3}>
+                    <Card style={{ padding: '20px' }}>
+                    <Button color="primary" variant={displayType === "All" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {handleDisplayByType("All")}}>
+                      <p style={{fontFamily: '', fontSize: '12px'}}>All</p>
+                    </Button>
+                    <Button color="primary" variant={displayType === "Unpaid" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {handleDisplayByType("Unpaid")}}>
+                      <p style={{fontFamily: '', fontSize: '12px'}}>Unpaid</p>
+                    </Button>
+                    <Button color="primary" variant={displayType === "Paid" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {handleDisplayByType("Paid")}}>
+                      <p style={{fontFamily: '', fontSize: '12px'}}>Paid</p>
+                    </Button>
+                    <Button color="primary" variant={displayType === "Accepted" ? "contained" : 'text'} className={classes.fabButton} onClick={() => {handleDisplayByType("Accepted")}}>
+                      <p style={{fontFamily: '', fontSize: '12px'}}>Accepted</p>
+                    </Button>
+                    </Card>
+                  </GridItem>
+                  <GridItem sm={9}>
+                    <Card>
+                      <div className={classes.root}>
+                        <Paper className={classes.paper}>
+                          <EnhancedTableToolbar handleCancel={handleCancel} handleDelete={handleDelete} numSelected={selected.length} />
+                          <TableContainer>
+                            <Table
+                              className={classes.table}
+                              aria-labelledby="tableTitle"
+                              size={dense ? 'small' : 'medium'}
+                              aria-label="enhanced table"
+                            >
+                              <EnhancedTableHead
+                                classes={classes}
+                                numSelected={selected.length}
+                                order={order}
+                                orderBy={orderBy}
+                                onSelectAllClick={handleSelectAllClick}
+                                onRequestSort={handleRequestSort}
+                                rowCount={rows.length}
+                              />
+                              <TableBody>
+                                {stableSort(rows, getComparator(order, orderBy))
+                                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                  .map((row, index) => {
+                                    const isItemSelected = isSelected(row.id);
+                                    const labelId = `enhanced-table-checkbox-${index}`;
+                                    return (
+                                      <TableRow
+                                        hover
+                                        onClick={(event) => {handleShowOrder(row)}}
+                                        role="checkbox"
+                                        aria-checked={isItemSelected}
+                                        tabIndex={-1}
+                                        key={row.id}
+                                        selected={isItemSelected}
+                                        className={classes.cursor}
+                                      >
+                                        <TableCell padding="checkbox">
+                                          <Checkbox
+                                            onClick={(event) => {event.stopPropagation();handleSelect(event, row.id)}}
+                                            checked={isItemSelected}
+                                            inputProps={{ 'aria-labelledby': labelId }}
+                                          />
+                                        </TableCell>
+                                        <TableCell align="left">{new Date(row.date).toLocaleString()}</TableCell>
+                                        <TableCell align="left">{row.number}</TableCell>
+                                        <TableCell align="left">${row.price}</TableCell>
+                                        <TableCell align="left"><Badge color="warning" size="medium"><p style={{fontSize: '12px', margin: '0px'}}>{row.status}</p></Badge></TableCell>
+                                      </TableRow>
+                                    );
+                                  })}
+                                {emptyRows > 0 && (
+                                  <TableRow style={{ height: (dense ? 33 : 53) * (emptyRows === rowsPerPage ? 5 : emptyRows) }}>
+                                    <TableCell colSpan={6} />
                                   </TableRow>
-                                );
-                              })}
-                            {emptyRows > 0 && (
-                              <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                                <TableCell colSpan={6} />
-                              </TableRow>
-                            )}
-                          </TableBody>
-                        </Table>
-                      </TableContainer>
-                      <TablePagination
-                        rowsPerPageOptions={[5, 10, 25]}
-                        component="div"
-                        count={rows.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onChangePage={handleChangePage}
-                        onChangeRowsPerPage={handleChangeRowsPerPage}
-                      />
-                    </Paper>
-                  </div>
-                  </Card>
-              </GridItem>
-            </GridContainer>
-            {/* Membership */}
+                                )}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                          <TablePagination
+                            rowsPerPageOptions={[5, 10, 25]}
+                            component="div"
+                            count={rows.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onChangePage={handleChangePage}
+                            onChangeRowsPerPage={handleChangeRowsPerPage}
+                          />
+                        </Paper>
+                      </div>
+                      </Card>
+                  </GridItem>
+                </GridContainer>
+              )}
 
-            {/* Footer */}
-
+            {/* Footer start */}
             <GridContainer justify="space-between" style={{ marginTop: "100px" }}>
               <GridItem sm={6}>
                 <img src="/img/CoDS_Black_Logo.png"></img>
@@ -654,13 +741,11 @@ export default function EnhancedTable (props) {
                 <p><Link href="/" >Chat support</Link></p>
               </GridItem>
             </GridContainer>
-
-            {/* Footer */}
-            {/* </div> */}
+            {/* Footer end */}
           </Container>
         </div>
       </div>
-      <Grid container  >
+      <Grid container>
         <Grid item xs={4} style={{display:"flex",justifyContent:'center'}}>
           <Typography>Copyright © 2023 CODS</Typography>
         </Grid>
@@ -669,6 +754,64 @@ export default function EnhancedTable (props) {
         </Grid>
         <Grid item xs={1} ></Grid>
       </Grid>
+
+
+
+
+
+      {/* dialog start */}
+      <Dialog
+        open={showOrder?true:false}
+        onClose={e=>setShowOrder(null)}
+        fullWidth
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle>
+          <GridContainer justify="space-between">
+            <p style={{fontSize: '20px'}}>Order Detail</p>
+            {
+              selectedOrder.status === "UNPAID" && (
+                <Button variant="outlined" color="primary" onClick={handleOrderComplete}>Complete Order</Button>
+              )
+            }
+          </GridContainer>
+        </DialogTitle>
+        <DialogContent style={{marginBottom: '32px'}}>
+          {showOrder&&(
+            <>
+              <List>
+                {selectedOrder.products && selectedOrder.products.map((oneProduct,index)=>{
+                  return oneProduct.product&&(
+                    <ListItem key={index} >
+                      <ListItemAvatar>
+                        <img style={{width:"10vh"}} src={oneProduct.product.image_url?oneProduct.product.image_url:`${BACKEND_URL}/shop/products/${oneProduct.product._id}/image`} />
+                      </ListItemAvatar>
+                      <ListItemText style={{marginLeft: '20px'}} primary={oneProduct.product.title+" X "+oneProduct.count} secondary={
+                        oneProduct.product.price.toFixed(2)+" X "+oneProduct.count+" = "+((Number(oneProduct.product.price)*Number(oneProduct.count)).toFixed(2)+" USD $")
+                        } >
+                      </ListItemText>
+                    </ListItem>
+                  )
+                })}
+                <Divider/>
+                {selectedOrder.shipping_rate&&(
+                  <ListItem  >
+                    <ListItemAvatar>
+                      <img style={{width:"10vh"}} src={selectedOrder.shipping_rate.provider_image_75} />
+                    </ListItemAvatar>
+                    <ListItemText style={{marginLeft:'20px'}} primary={`${selectedOrder.shipping_rate.provider} : ${selectedOrder.shipping_rate.servicelevel.display_name}`} secondary={
+                      Number(selectedOrder.shipping_rate.amount).toFixed(2)+" USD $"
+                      } >
+                    </ListItemText>
+                  </ListItem>
+                )}
+              </List>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+      {/* dialog end */}
     </div>
   );
 }

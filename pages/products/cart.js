@@ -5,81 +5,27 @@ import classNames from "classnames";
 import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Rating from '@material-ui/lab/Rating';
 // @material-ui/icons
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import KeyboardBackspaceOutlinedIcon from '@material-ui/icons/KeyboardBackspaceOutlined';
-import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
-import WallpaperOutlinedIcon from '@material-ui/icons/WallpaperOutlined';
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import VideocamOutlinedIcon from '@material-ui/icons/VideocamOutlined';
-import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
-import SmsOutlinedIcon from '@material-ui/icons/SmsOutlined';
-import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
-import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
-// core components
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import MUIButton from '@material-ui/core/Button';
-import Fab from '@material-ui/core/Fab';
-import Badge from '@material-ui/core/Badge';
-import { ButtonBase, Container, Dialog, DialogActions, DialogContent, DialogTitle, Divider, IconButton, Typography } from "@material-ui/core";
-import Slide from "@material-ui/core/Slide";
-// components
-import Header from "/components/Header/Header.js";
-import HeaderLinks from "/components/Header/HeaderLinks.js";
-import Footer from "/components/Footer/Footer.js";
-import GridContainer from "/components/Grid/GridContainer.js";
-import GridItem from "/components/Grid/GridItem.js";
-import Button from "/components/CustomButtons/Button.js";
-import CustomDropdown from "/components/CustomDropdown/CustomDropdown.js";
-import Parallax from "/components/Parallax/Parallax.js";
-import Info from "/components/Typography/Info.js";
-// sections for this page
-import SectionBasics from "/pages-sections/Components-Sections/SectionBasics.js";
-import SectionNavbars from "/pages-sections/Components-Sections/SectionNavbars.js";
-import SectionTabs from "/pages-sections/Components-Sections/SectionTabs.js";
-import SectionPills from "/pages-sections/Components-Sections/SectionPills.js";
-import SectionNotifications from "/pages-sections/Components-Sections/SectionNotifications.js";
-import SectionTypography from "/pages-sections/Components-Sections/SectionTypography.js";
-import SectionJavascript from "/pages-sections/Components-Sections/SectionJavascript.js";
-import SectionCarousel from "/pages-sections/Components-Sections/SectionCarousel.js";
-import SectionCompletedExamples from "/pages-sections/Components-Sections/SectionCompletedExamples.js";
-import SectionLogin from "/pages-sections/Components-Sections/SectionLogin.js";
-import SectionExamples from "/pages-sections/Components-Sections/SectionExamples.js";
-import SectionDownload from "/pages-sections/Components-Sections/SectionDownload.js";
-import Carousel from "react-slick";
-import LocationOn from "@material-ui/icons/LocationOn";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import Card from "/components/Card/Card.js";
-import CardBody from "/components/Card/CardBody.js";
-import CardHeader from "/components/Card/CardHeader.js";
-import Slider from "react-slick";
-import NavPills from "/components/NavPills/NavPills.js";
-import ElevateAppBar from "/components/General/layouts/NavBar.js";
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import BlockIcon from "@material-ui/icons/Block";
 import PhoneIcon from '@material-ui/icons/Phone';
-import MailIcon from '@material-ui/icons/Mail';
-import RoomIcon from '@material-ui/icons/Room';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import CustomInput from "/components/CustomInput/CustomInput.js";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Radio from "@material-ui/core/Radio";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import Avatar from '@material-ui/core/Avatar';
+// core components
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import { Container, Dialog, DialogContent, DialogTitle, Divider, IconButton, Typography } from "@material-ui/core";
+import Slide from "@material-ui/core/Slide";
+// components
+import GridContainer from "/components/Grid/GridContainer.js";
+import GridItem from "/components/Grid/GridItem.js";
+import Button from "/components/CustomButtons/Button.js";
+// sections for this page
+import Card from "/components/Card/Card.js";
+import ElevateAppBar from "/components/General/layouts/NavBar.js";
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import actions from '../../redux/actions';
@@ -88,16 +34,17 @@ import { BACKEND_URL } from "../../AppConfigs";
 //other
 import Datetime from "react-datetime";
 import { useSnackbar } from "notistack";
-import { formatDistanceToNow } from 'date-fns';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PayComponent from './PayComponent.js';
 import ProductList from "./productList.js";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-//rsuite
-import { Calendar, Whisper, Popover } from 'rsuite';
-import 'rsuite/dist/rsuite.min.css';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+//children
+import AutocompleteInput from './cart/AutocompleteInput.js';
+import NoProduct from "./cart/NoProduct.js";
+import NotValid from "./cart/NotValid.js";
+import VerticalLinearStepper from "./cart/VerticalLinearStepper.js";
 //style
 import modalStyle from "../../styles/jss/nextjs-material-kit/modalStyle.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/components.js";
@@ -109,6 +56,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 import Close from "@material-ui/icons/Close";
+import ShipRates from "./cart/ShipRates.js";
 
 const stripePromise = loadStripe('pk_test_51OVOQtFhFnxnoDMRquya5UT74vYR3BcJFVk79wFhtcXg3hgvyM44n9papYedTEXyoIqqYZWFKBGkfxTampbb7sG400RmgjkKoR');
 
@@ -166,53 +114,31 @@ const useStyles = makeStyles(theme => {
         padding: '9px'
       }
     },
+    smallFont: {
+      fontFamily: 'Apple-System,Arial,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,STXihei,sans-serif',
+      fontSize: '14px',
+      cursor: 'pointer'
+    },
+    noPadding: {
+      padding: '0px'
+    },
+    selectedPlan: {
+      padding: '0px',
+      marginLeft: '0px',
+      marginRight: '0px',
+      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    },
+    unselectedPlan: {
+      padding: '0px',
+      marginLeft: '0px',
+      marginRight: '0px',
+    },
+    selectedPlanItem: {
+      paddingTop: '10px',
+      paddingBottom: '10px',
+    },
   }
 });
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        position: "absolute",
-        top: "100%",// Adjust the position as needed
-        transform: "translateY(-50%)",
-        cursor: "pointer",
-        zIndex: "0",
-        opacity: "1"
-      }}
-      onClick={onClick}
-    >
-      <ArrowForwardIcon></ArrowForwardIcon>
-    </div>
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        position: "absolute",
-        top: "100%",// Adjust the position as needed
-        transform: "translateY(-50%)",
-        cursor: "pointer",
-        zIndex: "1",
-        left: "80%"
-      }}
-      onClick={onClick}
-    >
-      <ArrowBackIcon></ArrowBackIcon>
-    </div>
-  );
-}
 
 export default function Cart(props) {
   //snackbar
@@ -224,73 +150,18 @@ export default function Cart(props) {
   const redux_fullname = useSelector((state) => state.authentication.fullname);
   //other
   const classes = useStyles();
-  const imageInputRef = useRef(null);
-  const videoInputRef = useRef(null);
   const { ...rest } = props;
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [date, setDate] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [location, setLocation] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
-  const [createPostModal, setCreatePostModal] = React.useState(false);
-  const [clientSecret, setClientSecret]=useState(null);
-
-
-
-  const refContentText=React.useRef(null);
-  const refContentUpload=React.useRef(null);
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    appendDots: dots => (
-      <div
-        style={{
-          position: "absolute",
-          top: "100%",
-          width: "50%",
-          left: "0",
-          textAlign: "left",
-
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
-    customPaging: i => (
-      <div
-        style={{
-          width: i === currentSlide ? "20px" : "20px",
-          height: i === currentSlide ? "20px" : "20px",
-          border: "1px solid black",
-          borderRadius: '100%',
-          borderColor:"#2E3192",
-          backgroundColor: i === currentSlide ? '#2E3192' : 'white',
-          padding: "5px"
-        }}
-      >
-      </div>
-    ),
-    afterChange: (current) => setCurrentSlide(current),
-  };
-  const testimonial_settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 2,
-    speed: 500,
-    dots: true,
-    autoplay: true,
-  };
+  const [clientSecret, setClientSecret] = useState(null);
+  const [addressContainer, setAddressContainer] = useState({});
+  const [currentStep, setCurrentStep] = useState(0);
+  const [shipment, setShipment] = useState({});
+  const [disabled, setDisabled] = useState(false);
+  
 
   const renderInput = (props, openCalendar, closeCalendar) => (
     <div className="input-container">
@@ -299,72 +170,40 @@ export default function Cart(props) {
     </div>
   );
 
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
-  };
+  const handleDisabledChange = () => {
+    setDisabled(false);
+  }
+
+  const handleAddressContainerChange = (addressObject) => {
+    setAddressContainer(addressObject);
+  }
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   }
 
-  const handleLocationClick = (new_location) => {
-    setLocation(new_location);
-    setSuggestions([]);
-  }
-
-  const handleLocationChange = async (input) => {
-    setLocation(input);
-
-    // Fetch suggestions from your geocoding service
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${input}`
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      setSuggestions(data);
-    }
-  };
-
   const handleDateChange = (e) => {
     const selectedDate = e._d;
+    if (selectedDate === undefined || selectedDate === "" || selectedDate === null)
+      return ;
     const year = selectedDate.getFullYear();
     const month = selectedDate.getMonth() + 1; // Adding 1 because months are zero-indexed
     const day = selectedDate.getDate();
     const formattedDate = `${year}-${month < 10 ? "0" : ""}${month}-${
       day < 10 ? "0" : ""
     }${day}`;
-    console.log(formattedDate);
     setDate(formattedDate);
   };
 
-  //component mount
-  useEffect(() => {
-    axios
-      .get(`${BACKEND_URL}/shop/cart`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
-      .then((response) => {
-        //error handler
-        if (response.data.status == "error") {
-          const {
-            error
-          } = response.data;
-          dispatch(actions.createError(error));
-          return snackbar.enqueueSnackbar(
-            response.data.error ? response.data.error : "Error",
-            { variant: "error" }
-          );
-        }
-        setProducts(response.data.data);
-        console.log(response.data.data);
-        const total = response.data.data.reduce((sum, value) => {
-          if(value.product && value.product.price)
-            return sum + value.product.price*value.count;
-        }, 0)
-        setTotal(total);
-      });
-
-    
-    axios.get(`${BACKEND_URL}/test/payment-intent`)
+  const handleCurrentStepChange = (step) => {
+    step = step > 3 ? 3 : step;
+    //create dummy order
+    if (step === 2) {
+      handlePurchase();
+    }
+    //get stripe info
+    if (step === 3) {
+      axios.post(`${BACKEND_URL}/test/create-payment-intent`,{amount: total*100} , {headers: {token:redux_token}})
       .then(response=>{
         if (response.data.status == "error") {
           const {
@@ -378,45 +217,15 @@ export default function Cart(props) {
         }
         setClientSecret(response.data.clientSecret)
       })
-  }, []);
-
-  const handleDeleteProduct = (id, index, change) => {
-    axios
-      .delete(`${BACKEND_URL}/shop/cart/${id}`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
-      .then((response) => {
-        //error handler
-        if (response.data.status == "error") {
-          const {
-            error
-          } = response.data;
-          dispatch(actions.createError(error));
-          return snackbar.enqueueSnackbar(
-            response.data.error ? response.data.error : "Error",
-            { variant: "error" }
-          );
-        }
-
-        let dummy_products = [...products];
-        dummy_products.splice(index, 1);
-        setProducts(dummy_products);
-        handleTotalChange(change*(-1));
-      });
+    }
+    setCurrentStep(step);
   }
 
-  const handleTotalChange = (change) => {
-    let result = total*1.0+change*1.0;
-    setTotal(result.toFixed(2));
-  }
-
-  const handlePurchase = (result) => {
-    setCreatePostModal(false);
+  const handlePay = (result) => {
     axios
-      .post(`${BACKEND_URL}/shop/orders/save`, {
+      .post(`${BACKEND_URL}/shop/orders/purchase`, {
         result,
-        email,
-        phone,
-        date,
-        location
+        order: shipment.order_id
       }, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
       .then((response) => {
         //error handler
@@ -431,6 +240,121 @@ export default function Cart(props) {
           );
         }
         Router.push("/dummy-success");
+      });
+  }
+
+  //component mount
+  useEffect(() => {
+    let cartProducts = localStorage.getItem('cartProducts');
+    if (cartProducts === undefined || cartProducts == null)
+      cartProducts = [];
+    else cartProducts = JSON.parse(cartProducts);
+    
+
+    setProducts(cartProducts);
+    const total = cartProducts.reduce((sum, value) => {
+      if(value.price)
+        return sum + value.price;
+    }, 0)
+    setTotal(total);
+  }, []);
+
+  const handleDeleteProduct = (id, index, change) => {
+    let cartProducts = localStorage.getItem('cartProducts');
+    if (cartProducts === undefined || cartProducts === null)
+      cartProducts = [];
+    else cartProducts = JSON.parse(cartProducts);
+    cartProducts = cartProducts.filter(obj => obj._id !== id);
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+
+    setProducts(cartProducts);
+    handleTotalChange(change*(-1));
+  }
+
+  const handleTotalChange = (change) => {
+    let result = total*1.0+change*1.0;
+    setTotal(result.toFixed(2));
+  }
+
+  const refreshTotal = () => {
+    axios
+      .get(`${BACKEND_URL}/shop/orders/${shipment.order_id}`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .then((response) => {
+        //error handler
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        
+
+        const data = response.data.data;
+        
+        const products_price = data.products.reduce((sum, value) => {
+          if(value.product && value.product.price)
+            return sum + value.product.price*value.count;
+        }, 0);
+        let shipping_price = data.shipping_rate.amount;
+        let result_price = products_price * 1.0 + shipping_price * 1.0 - total * 1.0;
+        handleTotalChange(result_price.toFixed(2));
+      });
+  }
+
+  const handleCheckDetails = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(email === "")
+      return snackbar.enqueueSnackbar("Enter email please", { variant: "error" });
+    if(!emailRegex.test(email))
+      return snackbar.enqueueSnackbar("Enter valid email please", { variant: "error" });
+    if(phone === "")
+      return snackbar.enqueueSnackbar("Enter phone number please", { variant: "error" });
+    if (phone.match(/12345/)) {
+      return snackbar.enqueueSnackbar("Enter valid phone number please", { variant: "error" });
+    } else if (phone.match(/1234/)) {
+      return snackbar.enqueueSnackbar("Enter valid phone number please", { variant: "error" });
+    }
+    if(date == '' || date == undefined)
+      return snackbar.enqueueSnackbar("Enter shipping date please", { variant: "error" });
+    if(addressContainer == {} || !addressContainer.hasOwnProperty('address') || addressContainer.address == "" || addressContainer.address == undefined)
+      return snackbar.enqueueSnackbar("Enter shipping address please", { variant: "error" });
+    return "valid";
+  }
+
+  const handlePurchase = () => {
+    // if (handleCheckDetails() !== "valid")
+    //   return ;
+    axios
+      .post(`${BACKEND_URL}/shop/orders/save`, {
+        email,
+        phone,
+        date,
+        location: addressContainer.address,
+        street: addressContainer.street,
+        city: addressContainer.city,
+        state: addressContainer.state,
+        country: addressContainer.country,
+        zip: addressContainer.zip_code,
+      }, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .then((response) => {
+        //error handler
+        if (response.data.status == "error") {
+          const {
+            error
+          } = response.data;
+          dispatch(actions.createError(error));
+          setDisabled(true);
+          return snackbar.enqueueSnackbar(
+            response.data.error ? response.data.error : "Error",
+            { variant: "error" }
+          );
+        }
+        setShipment(response.data.data);
+        // Router.push("/dummy-success");
         // snackbar.enqueueSnackbar("Purchase Success", { variant: "success" });
       });
   }
@@ -440,30 +364,185 @@ export default function Cart(props) {
       <ElevateAppBar />
       <div className={classNames(classes.mainRaised, classes.greyBackground)}>
         <div className={classes.sections}>
-          <Container maxWidth={false} style={{ maxWidth: "80%", paddingTop: "30px" }} >
-            <GridContainer direction="row" alignItems="center" style={{paddingLeft: '15px'}}>
-              <KeyboardBackspaceOutlinedIcon  onClick={() => {Router.push("/products")}} className={classes.cursor} />
-              <h5 onClick={() => {Router.push("/products")}} className={classes.cursor} >&nbsp;Back</h5>
+          <Container
+            maxWidth={false}
+            style={{ maxWidth: "80%", paddingTop: "30px" }}
+          >
+            <GridContainer
+              direction="row"
+              alignItems="center"
+              style={{ paddingLeft: "15px" }}
+            >
+              <KeyboardBackspaceOutlinedIcon
+                onClick={() => {
+                  Router.push("/products");
+                }}
+                className={classes.cursor}
+              />
+              <h5
+                onClick={() => {
+                  Router.push("/products");
+                }}
+                className={classes.cursor}
+              >
+                &nbsp;Back
+              </h5>
             </GridContainer>
             <GridContainer>
-              <GridItem xs={9} sm={9} md={9} lg={9} >
-                <Card style={{paddingTop: '10px',paddingBottom: '10px',}}>
-                  {products.map((value, index) => {
-                    return (<ProductList count={value.count} handleTotalChange={handleTotalChange} id={value._id} key={value._id} product={value.product} handleDeleteProduct={handleDeleteProduct} index={index} />)
-                  })}
+              <GridItem xs={9} sm={9} md={9} lg={9}>
+                <Card style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+                  <GridContainer>
+                    <GridItem  xs={1} sm={1} md={1} lg={1}></GridItem>
+                    <GridItem  xs={10} sm={10} md={10} lg={10}>
+                      {currentStep === 0 && (products && products.length == 0 ? (
+                        <NoProduct />
+                      ) : (
+                        products.map((value, index) => {
+                          return (
+                            <ProductList
+                              handleTotalChange={handleTotalChange}
+                              id={value._id}
+                              key={value._id}
+                              product={value}
+                              handleDeleteProduct={handleDeleteProduct}
+                              index={index}
+                            />
+                          );
+                        })
+                      ))}
+
+                      {currentStep === 1 && <GridContainer direction="row">
+                        <GridItem  xs={3} sm={3} md={3} lg={3}></GridItem>
+                        <GridItem  xs={6} sm={6} md={6} lg={6}>
+                          <TextField
+                            className={classes.outlinedStyle}
+                            onChange={handleEmailChange}
+                            placeholder="Email"
+                            fullWidth
+                            variant="outlined"
+                            InputProps={{
+                              style: {
+                                // Control font or other styles here
+                                fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                                fontSize: "14px",
+                                marginTop: "30px",
+                                "::placeholder": {
+                                  display: "none",
+                                },
+                              },
+                            }}
+                          />
+                          <PhoneInput
+                            isValid={(value, country) => {
+                              if (value.match(/12345/)) {
+                                return "Invalid value: " + value + ", " + country.name;
+                              } else if (value.match(/1234/)) {
+                                return false;
+                              } else {
+                                return true;
+                              }
+                            }}
+                            style={{ marginTop: "30px" }}
+                            country={"us"}
+                            value={phone}
+                            onChange={(phone, data) => {
+                              setPhone(phone);
+                            }}
+                            inputStyle={{ width: "100%" }}
+                            placeholder="Phone"
+                            inputProps={{
+                              type: "",
+                              endAdornment: (
+                                <PhoneIcon className={classes.inputIconsColor} />
+                              ),
+                              autoComplete: "off",
+                            }}
+                          />
+                          <Datetime
+                            inputProps={{
+                              placeholder: "Shipping Date",
+                              style: {
+                                width: "100%",
+                                padding: "9px", // Adjust padding as needed
+                                borderTop: "1px solid #ced4da", // Border color for top
+                                borderLeft: "1px solid #ced4da", // Border color for left
+                                borderRight: "1px solid #ced4da", // Border color for right
+                                borderBottom: "none", // Omit bottom border
+                                borderRadius: "4px", // Border radius
+                                outline: "none",
+                                fontSize: "16px", // Font size
+                                marginTop: "30px",
+                                color: "#333",
+                                "::placeholder": {
+                                  color: "rgba(255, 0, 0, 1)", // Color and transparency of the placeholder
+                                },
+                                placeholderStyle: {
+                                  color: "rgba(255, 0, 0, 0.5)", // Color and transparency of the placeholder
+                                },
+                              },
+                            }}
+                            value={date}
+                            dateFormat={"YYYY-MM-DD"}
+                            timeFormat={false}
+                            onChange={handleDateChange}
+                            renderInput={renderInput}
+                          />
+                          <AutocompleteInput
+                            handleAddressContainerChange={handleAddressContainerChange}
+                            noPadding={classes.noPadding}
+                            smallFont={classes.smallFont}
+                            outlinedStyle={classes.outlinedStyle}
+                          />
+                        </GridItem>
+                      </GridContainer>}
+
+                      {currentStep === 2 && ((Object.keys(shipment).length !== 0 && disabled ===false) ?
+                      <ShipRates id={shipment.order_id} refreshTotal={refreshTotal}  /> : (
+                        <GridContainer>
+                          <GridItem style={{paddingTop: '50px', paddingBottom: '50px', }}>
+                            <NotValid />
+                          </GridItem>
+                        </GridContainer>
+                      ))}
+
+                      {currentStep === 3 &&
+                      <GridContainer>
+                        <GridItem>
+                          {clientSecret && (
+                            <Elements
+                              stripe={stripePromise}
+                              options={{ clientSecret: clientSecret }}
+                            >
+                              <PayComponent
+                                handlePay={handlePay}
+                                email={email}
+                                phone={phone}
+                                date={date}
+                                location={addressContainer}
+                              />
+                            </Elements>
+                          )}
+                        </GridItem>
+                      </GridContainer>}
+                    </GridItem>
+                    <GridItem  xs={3} sm={3} md={3} lg={3}></GridItem>
+                  </GridContainer>
                 </Card>
               </GridItem>
               <GridItem xs={3} sm={3} md={3} lg={3}>
-                <Card className={classes.cardPaddingNoTop}>
+                <Card className={classes.cardPaddingNoTop} style={{minHeight: '233px'}}>
+                  {(products && products.length === 0 && currentStep === 0) ?
+                  <div></div>
+                  : <VerticalLinearStepper handleCurrentStepChange={handleCurrentStepChange} handleCheckDetails={handleCheckDetails} disabled={disabled} handleDisabledChange={handleDisabledChange} />}
                   <GridContainer justify="center">
-                      <h3 className={classes.title} style={{ color: "#2E3192" }}>Total :</h3>
-                      <h3 className={classes.title} style={{ color: "#2E3192" }}>&nbsp;${total}</h3>
+                    <h3 className={classes.title} style={{ color: "#2E3192" }}>
+                      Total :
+                    </h3>
+                    <h3 className={classes.title} style={{ color: "#2E3192" }}>
+                      &nbsp;${total}
+                    </h3>
                   </GridContainer>
-                  <GridContainer justify="center" alignItems="center">
-                    <Button round color="primary" onClick={() => {setCreatePostModal(true)}}>
-                      Purchase
-                    </Button>
-                  </GridContainer>
+                  
                 </Card>
               </GridItem>
             </GridContainer>
@@ -471,44 +550,98 @@ export default function Cart(props) {
 
             {/* Footer */}
 
-            <GridContainer justify="space-between" style={{ marginTop: "100px" }}>
+            <GridContainer
+              justify="space-between"
+              style={{ marginTop: "100px" }}
+            >
               <GridItem sm={6}>
                 <img src="/img/CoDS_Black_Logo.png"></img>
-                <p>Lorem ipsum dolor sit amet consectetur adipising elit aliquam</p>
-                <GridContainer style={{ color: "#2E3192", width: "50%" }} justify="space-between">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipising elit aliquam
+                </p>
+                <GridContainer
+                  style={{ color: "#2E3192", width: "50%" }}
+                  justify="space-between"
+                >
                   <GridItem>
-                    <IconButton color="primary" ><TwitterIcon /></IconButton>
-                    <IconButton color="primary" ><InstagramIcon /></IconButton>
-                    <IconButton color="primary" ><FacebookIcon /></IconButton>
-                    <IconButton color="primary" ><LinkedInIcon /></IconButton>
-                    <IconButton color="primary" ><YouTubeIcon /></IconButton>
+                    <IconButton color="primary">
+                      <TwitterIcon />
+                    </IconButton>
+                    <IconButton color="primary">
+                      <InstagramIcon />
+                    </IconButton>
+                    <IconButton color="primary">
+                      <FacebookIcon />
+                    </IconButton>
+                    <IconButton color="primary">
+                      <LinkedInIcon />
+                    </IconButton>
+                    <IconButton color="primary">
+                      <YouTubeIcon />
+                    </IconButton>
                   </GridItem>
                 </GridContainer>
               </GridItem>
               <GridItem sm={2}>
-                <h4 className={classes.title} style={{ color: "#170F49" }}>Product</h4>
-                <p><Link href="/" >Features</Link></p>
-                <p><Link href="/" >Pricing</Link></p>
-                <p><Link href="/" >Case studies</Link></p>
-                <p><Link href="/" >Reviews</Link></p>
-                <p><Link href="/" >Updates</Link></p>
+                <h4 className={classes.title} style={{ color: "#170F49" }}>
+                  Product
+                </h4>
+                <p>
+                  <Link href="/">Features</Link>
+                </p>
+                <p>
+                  <Link href="/">Pricing</Link>
+                </p>
+                <p>
+                  <Link href="/">Case studies</Link>
+                </p>
+                <p>
+                  <Link href="/">Reviews</Link>
+                </p>
+                <p>
+                  <Link href="/">Updates</Link>
+                </p>
               </GridItem>
               <GridItem sm={2}>
-                <h4 className={classes.title} style={{ color: "#170F49" }}>Company</h4>
-                <p><Link href="/" >About</Link></p>
-                <p><Link href="/" >Contact Us</Link></p>
-                <p><Link href="/" >Careers</Link></p>
-                <p><Link href="/" >Culture</Link></p>
-                <p><Link href="/" >Blog</Link></p>
+                <h4 className={classes.title} style={{ color: "#170F49" }}>
+                  Company
+                </h4>
+                <p>
+                  <Link href="/">About</Link>
+                </p>
+                <p>
+                  <Link href="/">Contact Us</Link>
+                </p>
+                <p>
+                  <Link href="/">Careers</Link>
+                </p>
+                <p>
+                  <Link href="/">Culture</Link>
+                </p>
+                <p>
+                  <Link href="/">Blog</Link>
+                </p>
               </GridItem>
 
               <GridItem sm={2}>
-                <h4 className={classes.title} style={{ color: "#170F49" }}>Support</h4>
-                <p><Link href="/" >Getting Started</Link></p>
-                <p><Link href="/" >Helper center</Link></p>
-                <p><Link href="/" >Server status</Link></p>
-                <p><Link href="/" >Report a bug</Link></p>
-                <p><Link href="/" >Chat support</Link></p>
+                <h4 className={classes.title} style={{ color: "#170F49" }}>
+                  Support
+                </h4>
+                <p>
+                  <Link href="/">Getting Started</Link>
+                </p>
+                <p>
+                  <Link href="/">Helper center</Link>
+                </p>
+                <p>
+                  <Link href="/">Server status</Link>
+                </p>
+                <p>
+                  <Link href="/">Report a bug</Link>
+                </p>
+                <p>
+                  <Link href="/">Chat support</Link>
+                </p>
               </GridItem>
             </GridContainer>
 
@@ -517,165 +650,19 @@ export default function Cart(props) {
           </Container>
         </div>
       </div>
-      <Grid container  >
-        <Grid item xs={4} style={{display:"flex",justifyContent:'center'}}>
+      <Grid container>
+        <Grid item xs={4} style={{ display: "flex", justifyContent: "center" }}>
           <Typography>Copyright © 2023 CODS</Typography>
         </Grid>
-        <Grid item xs={7} >
-          <p style={{float:"right"}} ><Link href="/" >All Rights Reserved</Link> | <Link href="/" >Terms Condition</Link> | <Link href="/" >Privacy Policy</Link></p>
+        <Grid item xs={7}>
+          <p style={{ float: "right" }}>
+            <Link href="/">All Rights Reserved</Link> |{" "}
+            <Link href="/">Terms Condition</Link> |{" "}
+            <Link href="/">Privacy Policy</Link>
+          </p>
         </Grid>
-        <Grid item xs={1} ></Grid>
+        <Grid item xs={1}></Grid>
       </Grid>
-
-      {/* start of create post dialog */}
-      <Dialog
-        classes={{
-          root: classes.center,
-          paper: classes.modal
-        }}
-        open={createPostModal}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={() => setCreatePostModal(false)}
-        aria-labelledby="classic-modal-slide-title"
-        aria-describedby="classic-modal-slide-description"
-        maxWidth="sm"
-        fullWidth={true}
-      >
-        <DialogTitle
-          id="classic-modal-slide-title"
-          disableTypography
-          className={classes.modalHeader}
-        >
-          <IconButton
-            className={classes.modalCloseButton}
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            onClick={() => setCreatePostModal(false)}
-          >
-            <Close className={classes.modalClose} />
-          </IconButton>
-          <h4 className={classNames(classes.modalTitle, classes.title, classes.textCenter)}>Enter details</h4>
-        </DialogTitle>
-        <DialogContent
-          id="classic-modal-slide-description"
-          className={classes.modalBody}
-        >
-          <Divider />
-          <GridContainer direction="column">
-            <GridItem>
-              <TextField
-                className={classes.outlinedStyle}
-                onChange={handleEmailChange}
-                placeholder="Email"
-                fullWidth
-                variant="outlined"
-                InputProps={{
-                  style: {
-                    // Control font or other styles here
-                    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                    fontSize: '14px',
-                    marginTop: '30px',
-                    '::placeholder' : {
-                      display: 'none'
-                    },
-                  },
-                }}
-              />
-              <PhoneInput
-                isValid={(value, country) => {
-                  if (value.match(/12345/)) {
-                    return 'Invalid value: '+value+', '+country.name;
-                  } else if (value.match(/1234/)) {
-                    return false;
-                  } else {
-                    return true;
-                  }
-                }}
-                style={{marginTop: '30px'}}
-                country={'us'}
-                value={phone}
-                onChange={(phone, data) => {setPhone(phone);}}
-                inputStyle={{width: '100%'}}
-                placeholder="Phone"
-                inputProps={{
-                  type: "",
-                  endAdornment: (
-                    // <InputAdornment position="end">
-                      <PhoneIcon className={classes.inputIconsColor} />
-                    // </InputAdornment>
-                  ),
-                  autoComplete: "off"
-                }}
-              />
-              <Datetime
-                inputProps={{ placeholder: "Shipping Date", style: {
-                  width: '100%',
-                  padding: '9px', // Adjust padding as needed
-                  borderTop: '1px solid #ced4da', // Border color for top
-                  borderLeft: '1px solid #ced4da', // Border color for left
-                  borderRight: '1px solid #ced4da', // Border color for right
-                  borderBottom: 'none', // Omit bottom border
-                  borderRadius: '4px', // Border radius
-                  outline: 'none',
-                  fontSize: '16px', // Font size
-                  marginTop: '30px',
-                  color: '#333',
-                  '::placeholder': {
-                    color: 'rgba(255, 0, 0, 1)', // Color and transparency of the placeholder
-                  },
-                  placeholderStyle: {
-                    color: 'rgba(255, 0, 0, 0.5)', // Color and transparency of the placeholder
-                  }
-                }, }}
-                value={date}
-                dateFormat={"YYYY-MM-DD"}
-                timeFormat={false}
-                onChange={handleDateChange}
-                renderInput={renderInput}
-                // style={{display: "flex"}}
-              />
-              <TextField
-                className={classes.outlinedStyle}
-                onChange={(e) => handleLocationChange(e.target.value)}
-                placeholder="Address"
-                fullWidth
-                value={location}
-                variant="outlined"
-                InputProps={{
-                  style: {
-                    // Control font or other styles here
-                    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                    fontSize: '14px',
-                    marginTop: '30px',
-                    '::placeholder' : {
-                      display: 'none'
-                    },
-                  },
-                }}
-              />
-              <ul>
-                {suggestions.map((suggestion) => (
-                  <li key={suggestion.place_id} style={{cursor: 'pointer'}} onClick={() => handleLocationClick(suggestion.display_name)}>{suggestion.display_name}</li>
-                ))}
-              </ul>
-              {clientSecret&&(
-                
-              <Elements stripe={stripePromise} options={{clientSecret:clientSecret}} >
-                <PayComponent handlePurchase={handlePurchase} email={email} phone={phone} date={date} location={location} />
-              </Elements>
-              )}
-            </GridItem>
-          </GridContainer>
-        </DialogContent>
-        {/* <DialogActions className={classes.modalFooter}>
-          <Button round color="primary" onClick={() => {handlePurchase()}} fullWidth>
-            Purchase
-          </Button>
-        </DialogActions> */}
-      </Dialog>
-      {/* end of create post dialog */}
     </div>
   );
 }

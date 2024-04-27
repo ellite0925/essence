@@ -48,12 +48,7 @@ function HeaderLinks(props) {
   }
 
   const handleProducts = () => {
-    if(props.token==null || props.token==undefined)
-    {
-      return snackbar.enqueueSnackbar("Sign in first", { variant: "info" });
-    } else {
-      return Router.push("/products");
-    }
+    return Router.push("/products");
   }
 
   const handleLogin = () => {

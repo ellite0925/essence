@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => {
       display: '-webkit-box',
       WebkitLineClamp: 2, // Adjust the number of lines to fit your desired height
       WebkitBoxOrient: 'vertical',
-      height: '40px'
+      minHeight: '44px'
     },
     titleEllipsis: {
       overflow: 'hidden',
@@ -44,6 +44,20 @@ const useStyles = makeStyles(theme => {
     }
   }
 });
+
+const displayPrice = () => {
+  if (props.value.public)
+    return props.price;
+  return 0;
+}
+
+const addToCart = () => {
+  if (props.value.public)
+    props.handleAddToCart(props.value);
+  snackbar.enqueueSnackbar("Purchase membership please", {
+    variant: "info",
+  });
+}
 
 export default function productCard(props) {
   const classes = useStyles();
@@ -57,15 +71,15 @@ export default function productCard(props) {
             </div>
             <div style={{ width: "100%", display: "flex", justifyContent: "center" }} >
               {(props.value && props.value.image_url) ?
-              (<img src={props.value.image_url} alt="..." style={{ width: "15vw", height: "25vh", cursor: 'pointer'}} onClick={() => { Router.push({pathname: '/products/productDetails', query: {id:props.id}}) }}></img>) : 
-              (<img src={`${BACKEND_URL}/shop/products/${props.id}/image`} alt="..." style={{ width: "15vw", height: "25vh", cursor: 'pointer'}} onClick={() => { Router.push({pathname: '/products/productDetails', query: {id:props.id}}) }}></img>)}
+              (<img src={props.value.image_url} alt="..." style={{ width: "15vw", height: "25vh", cursor: 'pointer'}} onClick={() => { Router.push({pathname: '/products/productDetails', query: {id:props.id, url:props.value.image_url}}) }}></img>) : 
+              (<img src={`${BACKEND_URL}/shop/products/${props.id}/image`} alt="..." style={{ width: "15vw", height: "25vh", cursor: 'pointer'}} onClick={() => { Router.push({pathname: '/products/productDetails', query: {id:props.id, url:`${BACKEND_URL}/shop/products/${props.id}/image`}})}}></img>)}
             </div>
             <h3 className={classes.title + " " + classes.titleEllipsis} style={{ color: "#2E3192" }}>{props.title}</h3>
             <p className={classes.ellipsis}>{convert(props.description)}</p>
             <Rating name="read-only" value={4} readOnly />
             <Grid container direction="row" justify="space-between" alignItems="flex-end">
-              <h2 className={classes.title} style={{ color: "#2E3192" }}>${props.price}</h2>
-              <p className={classNames(classes.title, classes.cursor)} style={{ display: "flex" }} onClick={() => {props.handleAddToCart(props.id)}}><ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>Add to Cart</p>
+              <h2 className={classes.title} style={{ color: "#2E3192" }}>${displayPrice()}</h2>
+              <p className={classNames(classes.title, classes.cursor)} style={{ display: "flex" }} onClick={addToCart}><ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>Add to Cart</p>
             </Grid>
           </CardBody>
         </Card>
