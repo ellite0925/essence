@@ -62,6 +62,7 @@ export default function ProductList(props) {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
+    setQuantity(props.product.count);
   }, []);
 
   const handleQuantityChange = (e) => {
@@ -73,6 +74,15 @@ export default function ProductList(props) {
     let new_q = (q-1 >= 1 ? (q-1) : 1);
     setQuantity(new_q);
     props.handleTotalChange((new_q-q)*props.product.price);
+
+    let cartProducts = localStorage.getItem('cartProducts');
+    cartProducts = JSON.parse(cartProducts);
+    cartProducts.forEach(element => {
+      if ( element._id == props.id ) {
+        element.count = new_q;
+      }
+    });
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }
 
   const handlePlus = (e) => {
@@ -80,6 +90,15 @@ export default function ProductList(props) {
     let new_q = q+1;
     setQuantity(new_q);
     props.handleTotalChange((new_q-q)*props.product.price);
+
+    let cartProducts = localStorage.getItem('cartProducts');
+    cartProducts = JSON.parse(cartProducts);
+    cartProducts.forEach(element => {
+      if ( element._id == props.id ) {
+        element.count = new_q;
+      }
+    });
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }
 
   return (

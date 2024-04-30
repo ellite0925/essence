@@ -158,29 +158,13 @@ export default function Products(props) {
           setCategories(response.data.data);
         }
       });
-    axios
-      .get(`${BACKEND_URL}/shop/cart/count`) //, {headers: {token:redux_token}}
-      .then((response) => {
-        //error handler
-        if (response.data.status == "error") {
-          const { error } = response.data;
-          dispatch(actions.createError(error));
+    
+    let cartProducts = localStorage.getItem('cartProducts');
+    if (cartProducts === undefined || cartProducts === null)
+      cartProducts = [];
+    else cartProducts = JSON.parse(cartProducts);
+    setCartCount(cartProducts.length);
 
-          if (
-            !(
-              response.data.error == "NOT_MEMBER" ||
-              response.data.error == "EXPIRED"
-            )
-          ) {
-            snackbar.enqueueSnackbar(
-              response.data.error ? response.data.error : "Error",
-              { variant: "error" }
-            );
-          }
-        } else {
-          setCartCount(response.data.data);
-        }
-      });
     axios
       .post(
         `${BACKEND_URL}/shop/products/page`,
@@ -221,9 +205,13 @@ export default function Products(props) {
     cartProducts.forEach(element => {
       if ( element._id == product._id ) {
         is_exist = 1;
+        if (element.count === undefined || element.count === null)
+          element.count = 0;
+        element.count++;
       }
     });
     if (is_exist === 0) {
+      product.count = 1;
       cartProducts.push(product);
     }
     localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
@@ -240,7 +228,6 @@ export default function Products(props) {
           page: 0,
           pagesize: 6,
         },
-        { headers: { token: redux_token } }
       )
       .then((response) => {
         //error handler
@@ -268,7 +255,6 @@ export default function Products(props) {
           page: 0,
           pagesize: 6,
         },
-        { headers: { token: redux_token } }
       )
       .then((response) => {
         //error handler
@@ -295,7 +281,6 @@ export default function Products(props) {
           page: new_page,
           pagesize: rowsPerPage,
         },
-        { headers: { token: redux_token } }
       )
       .then((response) => {
         //error handler
@@ -322,7 +307,6 @@ export default function Products(props) {
           page: page,
           pagesize: new_rows_per_page,
         },
-        { headers: { token: redux_token } }
       )
       .then((response) => {
         //error handler

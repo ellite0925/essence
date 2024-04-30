@@ -14,6 +14,7 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from "@material-ui/core/styles";
 //other
+import { useSnackbar } from "notistack";
 import Rating from '@material-ui/lab/Rating';
 import classNames from "classnames";
 import { BACKEND_URL } from "../../AppConfigs";
@@ -45,22 +46,27 @@ const useStyles = makeStyles(theme => {
   }
 });
 
-const displayPrice = () => {
-  if (props.value.public)
-    return props.price;
-  return 0;
-}
-
-const addToCart = () => {
-  if (props.value.public)
-    props.handleAddToCart(props.value);
-  snackbar.enqueueSnackbar("Purchase membership please", {
-    variant: "info",
-  });
-}
 
 export default function productCard(props) {
   const classes = useStyles();
+  //snackbar
+  const snackbar = useSnackbar();
+
+  const displayPrice = () => {
+    if (props.value.public)
+      return props.price;
+    return 0;
+  }
+
+  const addToCart = () => {
+    if (props.value.public)
+      props.handleAddToCart(props.value);
+    else
+      snackbar.enqueueSnackbar("Purchase membership please", {
+        variant: "info",
+      });
+  }
+  
   return (
       <GridItem sm={4}>
         <Card style={{ backgroundColor: "#F8F8F8"}}>

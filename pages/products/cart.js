@@ -145,9 +145,9 @@ export default function Cart(props) {
   const snackbar = useSnackbar();
   //redux
   const dispatch = useDispatch();
-  const redux_token = useSelector((state) => state.authentication.token);
-  const redux_email = useSelector((state) => state.authentication.email);
-  const redux_fullname = useSelector((state) => state.authentication.fullname);
+  // const redux_token = useSelector((state) => state.authentication.token);
+  // const redux_email = useSelector((state) => state.authentication.email);
+  // const redux_fullname = useSelector((state) => state.authentication.fullname);
   //other
   const classes = useStyles();
   const { ...rest } = props;
@@ -203,7 +203,7 @@ export default function Cart(props) {
     }
     //get stripe info
     if (step === 3) {
-      axios.post(`${BACKEND_URL}/test/create-payment-intent`,{amount: total*100} , {headers: {token:redux_token}})
+      axios.post(`${BACKEND_URL}/test/create-payment-intent`,{amount: total*100})
       .then(response=>{
         if (response.data.status == "error") {
           const {
@@ -223,10 +223,10 @@ export default function Cart(props) {
 
   const handlePay = (result) => {
     axios
-      .post(`${BACKEND_URL}/shop/orders/purchase`, {
+      .post(`${BACKEND_URL}/grander/shop/orders/purchase`, {
         result,
         order: shipment.order_id
-      }, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      }) //, {headers: {token:redux_token}}
       .then((response) => {
         //error handler
         if (response.data.status == "error") {
@@ -254,7 +254,7 @@ export default function Cart(props) {
     setProducts(cartProducts);
     const total = cartProducts.reduce((sum, value) => {
       if(value.price)
-        return sum + value.price;
+        return sum + value.price * value.count;
     }, 0)
     setTotal(total);
   }, []);
@@ -278,7 +278,7 @@ export default function Cart(props) {
 
   const refreshTotal = () => {
     axios
-      .get(`${BACKEND_URL}/shop/orders/${shipment.order_id}`, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+      .get(`${BACKEND_URL}/shop/orders/${shipment.order_id}`) //, {headers: {token:redux_token}}
       .then((response) => {
         //error handler
         if (response.data.status == "error") {
@@ -328,8 +328,13 @@ export default function Cart(props) {
   const handlePurchase = () => {
     // if (handleCheckDetails() !== "valid")
     //   return ;
+    let cartProducts = localStorage.getItem('cartProducts');
+    if (cartProducts === undefined || cartProducts === null)
+      cartProducts = [];
+    else cartProducts = JSON.parse(cartProducts);
+    
     axios
-      .post(`${BACKEND_URL}/shop/orders/save`, {
+      .post(`${BACKEND_URL}/grander/shop/orders`, {
         email,
         phone,
         date,
@@ -339,7 +344,8 @@ export default function Cart(props) {
         state: addressContainer.state,
         country: addressContainer.country,
         zip: addressContainer.zip_code,
-      }, {headers: {token:redux_token}}) //, {headers: {token:redux_token}}
+        products: cartProducts,
+      }) //, {headers: {token:redux_token}}
       .then((response) => {
         //error handler
         if (response.data.status == "error") {
