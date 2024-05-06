@@ -190,6 +190,7 @@ export default function Products(props) {
             );
           }
         } else {
+          console.log(response.data.data.pagedata);
           setProducts(response.data.data.pagedata);
           setTotalCount(response.data.data && response.data.data.totalNumbers);
         }

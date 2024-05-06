@@ -84,7 +84,7 @@ class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>CodsLand</title>
+          <title>The Essence Of Life</title>
         </Head>
         <ThemeProvider theme={theme} >
         <SnackbarProvider anchorOrigin={{horizontal:"left",vertical:"top"}} >

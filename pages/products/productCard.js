@@ -52,12 +52,6 @@ export default function productCard(props) {
   //snackbar
   const snackbar = useSnackbar();
 
-  const displayPrice = () => {
-    if (props.value.public)
-      return props.price;
-    return 0;
-  }
-
   const addToCart = () => {
     if (props.value.public)
       props.handleAddToCart(props.value);
@@ -65,6 +59,11 @@ export default function productCard(props) {
       snackbar.enqueueSnackbar("Purchase membership please", {
         variant: "info",
       });
+  }
+
+  const handleGotoCodsland = () => {
+    const url = `https://cods.land/products/productDetails?id=${props.id}&url=${BACKEND_URL}/shop/products/${props.id}/image`;
+    Router.push(url);
   }
   
   return (
@@ -84,7 +83,16 @@ export default function productCard(props) {
             <p className={classes.ellipsis}>{convert(props.description)}</p>
             <Rating name="read-only" value={4} readOnly />
             <Grid container direction="row" justify="space-between" alignItems="flex-end">
-              <h2 className={classes.title} style={{ color: "#2E3192" }}>${displayPrice()}</h2>
+              <div style={{display: 'flex', alignItems: 'center', height: '60px'}}>
+                {props.value.public ? (
+                  <h2 className={classes.title} style={{ color: "#2E3192" }}>{props.price}</h2>
+                ) : (
+                  <div style={{marginTop: '15px', marginBottom: '5px', cursor: 'pointer'}} onClick={handleGotoCodsland}>
+                    <Badge color="warning" size="medium"><h2 style={{ margin: '0px', fontSize: '12px' }}>Members only</h2></Badge>
+                  </div>
+                  // <Badge color="warning" size="medium"><p style={{fontSize: '12px', margin: '0px'}}>Members only</p></Badge>
+                )}
+              </div>
               <p className={classNames(classes.title, classes.cursor)} style={{ display: "flex" }} onClick={addToCart}><ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>Add to Cart</p>
             </Grid>
           </CardBody>

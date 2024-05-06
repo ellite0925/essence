@@ -51,15 +51,6 @@ function HeaderLinks(props) {
     return Router.push("/products");
   }
 
-  const handleLogin = () => {
-    if(!(props.token==null || props.token==undefined))
-    {
-      return snackbar.enqueueSnackbar("Already signed in. Click dashboard", { variant: "info" });
-    } else {
-      return Router.push("/login");
-    }
-  }
-
   const handleLogout = () => {
     dispatch(actions.deauthenticate());
     // return Router.push("");
@@ -113,21 +104,6 @@ function HeaderLinks(props) {
           About
         </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          // href="https://www.creative-tim.com/product/nextjs-material-kit-pro?ref=njsmk-navbar"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <a
-            href="#service_section"
-            style={{color:"inherit"}}
-            >
-            Services
-          </a>
-        </Button>
-      </ListItem>
       <ListItem className={classes.listItem}>        
         <Button
           href=""
@@ -147,41 +123,9 @@ function HeaderLinks(props) {
           className={classes.navLink}
           onClick={handleTouch}
         >
-          Contact
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          href=""
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-          onClick={handleTouch}
-        >
           GET IN TOUCH
         </Button>
       </ListItem>
-      {props.token == null ? <ListItem className={classes.listItem}>
-        <Button
-          href=""
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-          onClick={handleLogin}
-        >
-          Log In
-        </Button>
-      </ListItem> : <ListItem className={classes.listItem}>
-        <Button
-          href=""
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-          onClick={handleLogout}
-        >
-          Log Out
-        </Button>
-      </ListItem>}
       {/* <ListItem className={classes.listItem}>
         <Button
           href="https://www.creative-tim.com/product/nextjs-material-kit?ref=njsmk-navbar"
